@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "743300669861",
+    "project_id": "reen-ada05",
+    "storage_bucket": "reen-ada05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743300669861:android:8fd64a2bdb1474af89884c",
+        "android_client_info": {
+          "package_name": "com.example.green"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkIOvMfw00zVIzuWNa-VoQYkXH2vxAJOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
