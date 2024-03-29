@@ -1,4 +1,5 @@
 //import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
@@ -17,33 +18,32 @@ class _LoginFormState extends State<LoginForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // void _login() async {
-  //   String email = _emailController.text;
-  //   String password = _passwordController.text;
+  void _login() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
 
-  //   // close keyboard
-  //   FocusScope.of(context).unfocus();
+    // close keyboard
+    FocusScope.of(context).unfocus();
 
-  //   try {
-  //     await FirebaseAuth.instance
-  //         .signInWithEmailAndPassword(
-  //           email: email,
-  //           password: password,
-  //         )
-  //         .then(
-  //           (value) => navigateNextPage(
-  //             context,
-  //             const AuthWidgetTree(),
-  //           ),
-  //         );
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       print("No user found for that email.");
-  //     } else if (e.code == 'wrong-password') {
-  //       print("Wrong password provided for that user.");
-  //     }
-  //   }
-  // }
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // .then(
+      //   (value) => navigateNextPage(
+      //     context,
+      //     const AuthWidgetTree(),
+      //   ),
+      // );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print("No user found for that email.");
+      } else if (e.code == 'wrong-password') {
+        print("Wrong password provided for that user.");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class _LoginFormState extends State<LoginForm> {
           fontStyle: AppFonts.normalRegularTextWhite,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           press: () {
-            HomeScreen();
+            const HomeScreen();
           },
         ),
         Row(
