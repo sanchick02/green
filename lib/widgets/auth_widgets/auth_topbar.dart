@@ -24,7 +24,7 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 140,
+      height: 175,
       decoration: BoxDecoration(
           color: AppColor.fontColorSecondary,
           borderRadius: AppStyles.borderRadiusBottom,
@@ -43,9 +43,9 @@ class TopBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 40),
                     child: Image.asset(
-                      "lib/assets/images/Logo.png",
+                      "lib/assets/images/logo_auth.png",
                       width: 100,
                     ),
                   ),
