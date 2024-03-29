@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:green/screens/auth/auth_screen.dart';
+import 'package:green/screens/auth/login_form.dart';
 import 'package:green/screens/home_screen.dart';
 import 'package:green/screens/landing_screen.dart';
 import 'package:green/screens/landing_screen1.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: AuthScreen(),
       // home: QuestionsScreen(
       //   questions: questionsList,
       // ),
