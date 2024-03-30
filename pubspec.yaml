@@ -40,6 +40,11 @@ dependencies:
   carousel_slider: ^4.2.1
   provider: ^6.1.1
   rive: ^0.12.4
+  chat_gpt_sdk: ^2.2.8
+  dash_chat_2: ^0.0.19
+  syncfusion_flutter_gauges: ^25.1.37
+  datepicker_dropdown: ^0.1.0
+  swipe_cards: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
