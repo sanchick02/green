@@ -50,25 +50,22 @@ class DestinationCard extends StatelessWidget {
                 ),
               ),
             ),
-            ClipRRect(
-              borderRadius: AppStyles.borderRadiusBottom,
-              child: Container(
-                width: cardWidth,
-                height: 220 * 0.5,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    AppShadow.innerShadow3,
-                    AppShadow.innerShadow4,
+            Container(
+              width: cardWidth,
+              height: 220 * 0.5,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  AppShadow.innerShadow3,
+                  AppShadow.innerShadow4,
+                ],
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.white.withOpacity(1.0),
+                    Colors.white.withOpacity(0.7),
+                    Colors.white.withOpacity(0.1),
                   ],
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                      Colors.white.withOpacity(1.0),
-                      Colors.white.withOpacity(0.7),
-                      Colors.white.withOpacity(0.1),
-                    ],
-                  ),
                 ),
               ),
             ),
