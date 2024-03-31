@@ -266,7 +266,7 @@ class _SignUpFormState extends State<SignUpForm> {
           obscureText: true,
           width: double.infinity,
         ),
-        const SizedBox(height: 70),
+        const SizedBox(height: 45),
         DefaultButton(
           text: "Sign Up Now",
           backgroundColor: AppColor.btnColorPrimary,

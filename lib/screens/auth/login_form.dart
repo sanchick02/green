@@ -85,7 +85,9 @@ class _LoginFormState extends State<LoginForm> {
           fontStyle: AppFonts.normalRegularTextWhite,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           press: () {
-            const HomeScreen();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen(),));
           },
         ),
         Row(
