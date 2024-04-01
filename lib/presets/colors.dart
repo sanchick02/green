@@ -7,6 +7,8 @@ class AppColor {
 
   static Color btnColorPrimary = const Color(0xff589BFF);
   static Color btnColorSecondary = const Color(0xffFFFFFF);
+  static Color lightGrey = const Color(0xff252525).withOpacity(0.1);
+  static Color extraLightGrey = const Color(0xff252525).withOpacity(0.05);
 
   static Color switchColor = const Color(0xff71BE86);
   static Color switchOffColor = const Color(0xff000000).withOpacity(0.25);

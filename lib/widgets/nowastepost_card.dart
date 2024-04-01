@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:green/model/nowaste_posts_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
-import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 
 class NoWastePostCard extends StatelessWidget {

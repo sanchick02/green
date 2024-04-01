@@ -1,11 +1,6 @@
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/data/destinations.dart';
-import 'package:green/data/packages.dart';
-import 'package:green/data/upcoming_trips.dart';
-import 'package:green/model/destination_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
@@ -13,6 +8,7 @@ import 'package:green/presets/styles.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/destination_card.dart';
 import 'package:green/widgets/home_screen_widgets/statistics_tracker.dart';
+import 'package:green/widgets/package_carousel.dart';
 import 'package:green/widgets/topbar_logo_notif.dart';
 import 'package:green/widgets/upcomingtrips_carousel.dart';
 
@@ -31,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
     int points = 1;
     // Filter destinationList to include only destinations with "state" as "Sabah"
     final sabahDestinations = destinationList
-        .where((destination) => destination.state == 'Sabah')
+        .where((destination) => destination.location == 'Sabah')
         .toList();
 
     final sarawakDestinations = destinationList
-        .where((destination) => destination.state == 'Sarawak')
+        .where((destination) => destination.location == 'Sarawak')
         .toList();
 
     return Scaffold(
@@ -75,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Container(
@@ -88,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Your Upcoming Trip",
                       style: AppFonts.normalRegularText,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     UpcomingTripCarousel(),
@@ -109,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -122,99 +118,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Limited Packages You May Also Like",
                       style: AppFonts.normalRegularText,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    ClipRRect(
-                      borderRadius: AppStyles.borderRadiusAll,
-                      child: CarouselSlider(
-                        items: packageList.map((item) {
-                          return Stack(
-                            children: [
-                              Stack(
-                                children: [
-                                  Image.asset(
-                                    item.image,
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: AppStyles.borderRadiusBottom,
-                                    child: Container(
-                                      width: double.infinity,
-                                      // height: 220 * 0.5,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          AppShadow.innerShadow3,
-                                          AppShadow.innerShadow4,
-                                        ],
-                                        gradient: AppColor.blackGradient2(),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 10),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      item.packageName,
-                                      style: AppFonts.normalRegularTextWhite,
-                                    ),
-                                    Text(
-                                      item.priceFrom,
-                                      style: AppFonts.extraSmallLightTextWhite,
-                                    ),
-                                    Text(
-                                      item.description1,
-                                      style: AppFonts.extraSmallLightTextWhite,
-                                    ),
-                                    Text(
-                                      item.description2,
-                                      style: AppFonts.extraSmallLightTextWhite,
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          );
-                        }).toList(),
-                        options: CarouselOptions(
-                          // autoPlayInterval: const Duration(seconds: 2),
-                          autoPlay: false,
-                          height: 180,
-                          aspectRatio: 2.0,
-                          viewportFraction: 1.0,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              carouselCurrentIndex = index;
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                    ClipRRect(
-                      borderRadius: AppStyles.borderRadiusBottom,
-                      child: Container(
-                        width: double.infinity,
-                        // height: 220 * 0.5,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            AppShadow.innerShadow3,
-                            AppShadow.innerShadow4,
-                          ],
-                          gradient: AppColor.whiteGradient(),
-                        ),
-                      ),
+                    const PackageCarousel(
+                      showOffer: true,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -256,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
@@ -298,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
             ],

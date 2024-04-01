@@ -1,11 +1,10 @@
-import 'package:datepicker_dropdown/datepicker_dropdown.dart';
-import 'package:datepicker_dropdown/order_format.dart';
 import 'package:flutter/material.dart';
-import 'package:green/data/recommendations.dart';
+import 'package:green/data/destinations.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/widgets/button.dart';
+import 'package:green/widgets/custom_datepicker.dart';
 import 'package:green/widgets/filter_button.dart';
 import 'package:green/widgets/recommendation_card.dart';
 import 'package:green/widgets/topbar_logo_notif.dart';
@@ -21,9 +20,6 @@ class MyItineraryScreen extends StatefulWidget {
 class _MyItineraryScreenState extends State<MyItineraryScreen> {
   List<bool> buttonStates =
       List.filled(8, false); // List to track button states
-  int? _selectedDay;
-  int? _selectedMonth;
-  int? _selectedYear;
 
   @override
   Widget build(BuildContext context) {
@@ -78,91 +74,7 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                   ],
                 ),
               ),
-              Container(
-                margin: AppStyles.edgeInsetsLR,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "From",
-                      style: AppFonts.extraSmallLightText,
-                    ),
-                    DropdownDatePicker(
-                      locale: "en",
-                      width: MediaQuery.of(context).size.width * 0.02,
-                      textStyle: AppFonts.extraSmallLightText,
-                      hintTextStyle: AppFonts.extraSmallLightText,
-                      dateformatorder: OrderFormat.DMY,
-                      isDropdownHideUnderline: false,
-                      isFormValidator: true,
-                      isExpanded: false,
-                      startYear: 2024,
-                      endYear: 2026,
-                      selectedDay: _selectedDay,
-                      selectedMonth: _selectedMonth,
-                      selectedYear: _selectedYear,
-                      monthFlex: 3,
-                      dayFlex: 2,
-                      yearFlex: 2,
-                      onChangedDay: (value) {
-                        setState(() {
-                          _selectedDay = int.parse(value!);
-                        });
-                      },
-                      onChangedMonth: (value) {
-                        setState(() {
-                          _selectedMonth = int.parse(value!);
-                        });
-                      },
-                      onChangedYear: (value) {
-                        setState(() {
-                          _selectedYear = int.parse(value!);
-                        });
-                      },
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "To",
-                      style: AppFonts.extraSmallLightText,
-                    ),
-                    DropdownDatePicker(
-                      locale: "en",
-                      width: MediaQuery.of(context).size.width * 0.02,
-                      textStyle: AppFonts.extraSmallLightText,
-                      hintTextStyle: AppFonts.extraSmallLightText,
-                      dateformatorder: OrderFormat.DMY,
-                      isDropdownHideUnderline: false,
-                      isFormValidator: true,
-                      isExpanded: true,
-                      startYear: 2024,
-                      endYear: 2026,
-                      selectedDay: _selectedDay,
-                      selectedMonth: _selectedMonth,
-                      selectedYear: _selectedYear,
-                      monthFlex: 3,
-                      dayFlex: 2,
-                      yearFlex: 2,
-                      onChangedDay: (value) {
-                        setState(() {
-                          _selectedDay = int.parse(value!);
-                        });
-                      },
-                      onChangedMonth: (value) {
-                        setState(() {
-                          _selectedMonth = int.parse(value!);
-                        });
-                      },
-                      onChangedYear: (value) {
-                        setState(() {
-                          _selectedYear = int.parse(value!);
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              const CustomDatePicker(),
               const SizedBox(
                 height: 30,
               ),
@@ -181,12 +93,11 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                 child: Row(
                   children: [
                     ...List.generate(
-                      recommendationList.length,
+                      activityDetailList.length,
                       (index) => RecommendationCard(
-                        recommendation: recommendationList[index],
                         margin: EdgeInsets.only(
                             left: 15,
-                            right: index == recommendationList.length - 1
+                            right: index == activityDetailList.length - 1
                                 ? 15
                                 : 0),
                       ),

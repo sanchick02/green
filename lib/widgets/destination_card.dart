@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:green/data/destinations.dart';
 import 'package:green/model/destination_model.dart';
-import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/screens/destination/destination_screen.dart';
 
 class DestinationCard extends StatelessWidget {
   const DestinationCard({
@@ -13,7 +14,7 @@ class DestinationCard extends StatelessWidget {
     required this.margin,
   }) : super(key: key);
 
-  final Destination destination;
+  final DestinationDetailBase destination;
   final EdgeInsets margin;
 
   @override
@@ -25,7 +26,14 @@ class DestinationCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // Handle onTap event
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DestinationScreen(
+              destination: destinationList[0],
+            ),
+          ),
+        );
       },
       child: Container(
         margin: margin,
@@ -45,7 +53,7 @@ class DestinationCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: AppStyles.borderRadiusAll,
                 child: Image.asset(
-                  destination.image,
+                  destination.backgroundImage,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -73,29 +81,27 @@ class DestinationCard extends StatelessWidget {
               top: 100,
               left: 10,
               right: 15,
-              child: Container(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: cardWidth, // Adjust width for text container
-                      height: 110,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            destination.destinationName,
-                            style: AppFonts.normalRegularText,
-                          ),
-                          Text(
-                            destination.state,
-                            style: AppFonts.smallLightText,
-                          ),
-                        ],
-                      ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: cardWidth, // Adjust width for text container
+                    height: 110,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          destination.destinationName,
+                          style: AppFonts.normalRegularText,
+                        ),
+                        Text(
+                          destination.location,
+                          style: AppFonts.smallLightText,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

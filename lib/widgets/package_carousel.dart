@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:green/data/packages.dart';
-import 'package:green/model/packages_model.dart';
+import 'package:green/data/destinations.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
-import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 
 class PackageCarousel extends StatefulWidget {
-  final List<Package> packageList;
+  const PackageCarousel({Key? key, this.showOffer = false}) : super(key: key);
 
-  const PackageCarousel({
-    Key? key,
-    required this.packageList,
-  }) : super(key: key);
+  final bool showOffer;
 
   @override
   State<PackageCarousel> createState() => _PackageCarouselState();
@@ -26,57 +21,93 @@ class _PackageCarouselState extends State<PackageCarousel> {
     return ClipRRect(
       borderRadius: AppStyles.borderRadiusAll,
       child: CarouselSlider(
-        items: widget.packageList.map((item) {
+        items: tourDetailList.map((item) {
           return Stack(
+            alignment: Alignment.topRight,
             children: [
               Stack(
                 children: [
-                  Image.asset(
-                    item.image,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
-                  ClipRRect(
-                    borderRadius: AppStyles.borderRadiusBottom,
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          AppShadow.innerShadow3,
-                          AppShadow.innerShadow4,
-                        ],
-                        gradient: AppColor.blackGradient(),
+                  Stack(
+                    children: [
+                      Image.asset(
+                        item.backgroundImage,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
                       ),
+                      ClipRRect(
+                        borderRadius: AppStyles.borderRadiusBottom,
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            gradient: AppColor.blackGradient2(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item.title,
+                          style: AppFonts.normalRegularTextWhite,
+                        ),
+                        Text(
+                          item.price.toString(),
+                          style: AppFonts.extraSmallLightTextWhite,
+                        ),
+                        Text(
+                          item.descriptionShort,
+                          style: AppFonts.extraSmallLightTextWhite,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.packageName,
-                      style: AppFonts.normalRegularTextWhite,
-                    ),
-                    Text(
-                      item.priceFrom,
-                      style: AppFonts.extraSmallLightTextWhite,
-                    ),
-                    Text(
-                      item.description1,
-                      style: AppFonts.extraSmallLightTextWhite,
-                    ),
-                    Text(
-                      item.description2,
-                      style: AppFonts.extraSmallLightTextWhite,
-                    )
-                  ],
+              if (widget.showOffer)
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  width: 120,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.8),
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(5),
+                        bottomLeft: Radius.circular(5)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "GET 15% OFF",
+                        style: AppFonts.smallRegularText,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "with 150",
+                            style: AppFonts.extraSmallLightText,
+                          ),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          Image.asset(
+                            "lib/assets/images/greenpts.png",
+                            width: 20,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
             ],
           );
         }).toList(),

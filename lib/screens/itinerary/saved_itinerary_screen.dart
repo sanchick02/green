@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
@@ -7,9 +6,7 @@ import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
-import 'package:green/widgets/divider_line.dart';
 import 'package:green/widgets/itinerary_card.dart';
-import 'package:green/widgets/upcomingtrips_carousel.dart';
 
 class SavedItineraryScreen extends StatelessWidget {
   const SavedItineraryScreen({super.key});
@@ -33,7 +30,7 @@ class SavedItineraryScreen extends StatelessWidget {
                       width: 40,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset(
@@ -42,7 +39,7 @@ class SavedItineraryScreen extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
@@ -52,7 +49,7 @@ class SavedItineraryScreen extends StatelessWidget {
                   style: AppFonts.largeMediumText,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               ClipRRect(
@@ -70,7 +67,7 @@ class SavedItineraryScreen extends StatelessWidget {
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width - 30,
-                                    constraints: BoxConstraints(minHeight: 100),
+                                    constraints: const BoxConstraints(minHeight: 100),
                                     decoration: BoxDecoration(
                                       boxShadow: [
                                         AppShadow.innerShadow3,
@@ -125,13 +122,13 @@ class SavedItineraryScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        ItineraryCard(
+                        const ItineraryCard(
                           title: "Immerse in Sabah's Culture",
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                       ],

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:green/data/recommendations.dart';
-import 'package:green/model/recommendation_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
@@ -8,13 +6,11 @@ import 'package:green/presets/styles.dart';
 class RecommendationCard extends StatelessWidget {
   const RecommendationCard({
     super.key,
-    required this.recommendation,
     required this.margin,
     this.showButton =
         true, // Add a parameter to control the visibility of the button
   });
 
-  final Recommendation recommendation;
   final EdgeInsets margin;
   final bool showButton; // Parameter to control button visibility
 
@@ -24,9 +20,9 @@ class RecommendationCard extends StatelessWidget {
       margin: margin,
       width: MediaQuery.of(context).size.width - 30,
       height: MediaQuery.of(context).size.height * 0.12,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Color(0xff252525).withOpacity(0.05),
+        color: const Color(0xff252525).withOpacity(0.05),
         borderRadius: AppStyles.borderRadiusAll,
       ),
       child: Row(
@@ -34,23 +30,23 @@ class RecommendationCard extends StatelessWidget {
           ClipRRect(
             borderRadius: AppStyles.borderRadiusAll,
             child: Image.asset(
-              recommendation.image,
+              "lib/assets/images/seascuba.jpg",
               width: MediaQuery.of(context).size.height * 0.1,
               height: MediaQuery.of(context).size.height * 0.1,
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                recommendation.title,
+                "Seabunny Scubacations",
                 style: AppFonts.smallLightText,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Row(
@@ -60,30 +56,30 @@ class RecommendationCard extends StatelessWidget {
                     "lib/assets/images/greenpts.png",
                     width: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
-                    recommendation.greenPts,
+                    "+20 Green Pts",
                     style: AppFonts.extraSmallLightText,
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
-                recommendation.price,
+                "MYR 480.65",
                 style: AppFonts.extraSmallLightText,
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           if (showButton) // Conditionally show the button based on the parameter
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                padding: const MaterialStatePropertyAll(EdgeInsets.zero),
                 backgroundColor:
                     MaterialStatePropertyAll(AppColor.btnColorPrimary),
                 shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
@@ -92,7 +88,7 @@ class RecommendationCard extends StatelessWidget {
                   ),
                 ),
                 minimumSize:
-                    MaterialStateProperty.all(Size(45, 45)), // Set minimum size
+                    MaterialStateProperty.all(const Size(45, 45)), // Set minimum size
               ),
               child: Image.asset(
                 "lib/assets/icons/plus.png",
