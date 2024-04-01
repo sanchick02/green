@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:green/data/packages.dart';
-import 'package:green/data/recommendations.dart';
-import 'package:green/data/upcoming_trips.dart';
 import 'package:green/model/upcoming_trip_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
@@ -120,7 +117,6 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   RecommendationCard(
-                    recommendation: recommendationList[0],
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
@@ -131,13 +127,11 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   RecommendationCard(
-                    recommendation: recommendationList[0],
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
                   const SizedBox(height: 10),
                   RecommendationCard(
-                    recommendation: recommendationList[0],
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
@@ -147,9 +141,7 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                     style: AppFonts.normalRegularText,
                   ),
                   const SizedBox(height: 10),
-                  PackageCarousel(
-                    packageList: packageList,
-                  ),
+                  PackageCarousel(),
                   const SizedBox(height: 20),
                   DefaultButton(
                     press: () {},

@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
-import 'package:green/page_navigator.dart';
 
 import 'package:rive/rive.dart' as rive;
 
@@ -22,7 +21,7 @@ class AnimationScreen extends StatelessWidget {
               width: double.infinity,
             ),
             Container(
-              color: Color.fromARGB(255, 74, 158, 160).withOpacity(0.5),
+              color: const Color.fromARGB(255, 74, 158, 160).withOpacity(0.5),
             ),
             const rive.RiveAnimation.asset(
               "lib/assets/rive/geometric_shapes.riv",

@@ -25,6 +25,13 @@ class AppFonts {
     color: AppColor.fontColorPrimary,
   );
 
+  static TextStyle heading3White = TextStyle(
+    fontFamily: "LeagueSpartan",
+    fontSize: 36,
+    fontWeight: FontWeight.w600, // heading 3
+    color: AppColor.fontColorSecondary,
+  );
+
   static TextStyle heading3Height = TextStyle(
     fontFamily: "LeagueSpartan",
     fontSize: 36,
@@ -88,6 +95,14 @@ class AppFonts {
     // height: 0,
   );
 
+  static TextStyle smallRegularTextWhite = TextStyle(
+    fontFamily: "LeagueSpartan",
+    fontSize: 16,
+    fontWeight: FontWeight.w500, // small regular
+    color: AppColor.fontColorSecondary,
+    // height: 0,
+  );
+
   static TextStyle smallLightText = TextStyle(
     fontFamily: "LeagueSpartan",
     fontSize: 16,
@@ -123,6 +138,14 @@ class AppFonts {
     fontFamily: "LeagueSpartan",
     fontSize: 13,
     fontWeight: FontWeight.w400, // small light gray
+    color: AppColor.fontColorPrimary,
+    // height: 0,
+  );
+
+  static TextStyle smallestLightText = TextStyle(
+    fontFamily: "LeagueSpartan",
+    fontSize: 12,
+    fontWeight: FontWeight.w300, // small light gray
     color: AppColor.fontColorPrimary,
     // height: 0,
   );

@@ -1,23 +1,14 @@
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
-import 'package:green/data/destinations.dart';
-import 'package:green/data/packages.dart';
-import 'package:green/data/upcoming_trips.dart';
-import 'package:green/model/destination_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/widgets/button.dart';
-import 'package:green/widgets/destination_card.dart';
 import 'package:green/widgets/divider_line.dart';
-import 'package:green/widgets/home_screen_widgets/statistics_tracker.dart';
 import 'package:green/widgets/radial_gauge.dart';
 import 'package:green/widgets/toggle_switch.dart';
 import 'package:green/widgets/topbar_logo_notif.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -163,7 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     "lib/assets/images/topbar_logo.png",
                                     width: 60,
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   DefaultButton(
                                     text: "Redeem",
                                     press: () {},
@@ -197,7 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Column(

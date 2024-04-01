@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:green/navigation.dart';
 import 'package:green/page_navigator.dart';
-// import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/screens/landing/animation_screen.dart';
-import 'package:green/screens/home_screen.dart';
 import 'package:green/widgets/button.dart';
 
 class QuestionsScreen extends StatefulWidget {

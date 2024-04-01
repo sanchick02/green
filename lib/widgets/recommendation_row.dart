@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green/data/recommendations.dart';
+import 'package:green/data/destinations.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/widgets/recommendation_card.dart';
 
@@ -17,12 +17,11 @@ class RecommendationRow extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: List.generate(
-            recommendationList.length,
+            activityDetailList.length,
             (index) => RecommendationCard(
-              recommendation: recommendationList[index],
               margin: EdgeInsets.only(
                 left: 15,
-                right: index == recommendationList.length - 1 ? 15 : 0,
+                right: index == activityDetailList.length - 1 ? 15 : 0,
               ),
             ),
           ),
