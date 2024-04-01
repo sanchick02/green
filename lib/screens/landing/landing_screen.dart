@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/screens/auth/auth_screen.dart';
 import 'package:green/widgets/button.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -48,7 +49,11 @@ class LandingScreen extends StatelessWidget {
                     DefaultButton(
                       backgroundColor: AppColor.btnColorPrimary,
                       text: "Explore 6reen",
-                      press: () {},
+                      press: () {
+                        Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => AuthScreen()));
+                      },
                       height: 60,
                       fontStyle: AppFonts.normalRegularTextWhite,
                       width: 250,
