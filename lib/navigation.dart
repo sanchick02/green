@@ -29,20 +29,23 @@ class _NavigationState extends State<Navigation> {
 
   List<Widget> pages = [];
 
-  // @override
-  // void initState() {
-  //   Provider.of<UserProvider>(context, listen: false).fetchUserData().then((_) {
-  //     setState(() {
-  //       _isLoading = false;
+  @override
+  void initState() {
+    // Provider.of<UserProvider>(context, listen: false).fetchUserData().then((_) {
+    //   setState(() {
+    //     _isLoading = false;
 
-  //       pages = [
-  //         const HomeScreen(),
-  //       ];
-  //     });
-  //   });
+    //   });
+    // });
+    pages = [
+      const HomeScreen(),
+    ];
+    setState(() {
+      _isLoading = false;
+    });
 
-  //   super.initState();
-  // }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

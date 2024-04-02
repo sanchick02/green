@@ -1,6 +1,8 @@
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:green/auth_widget_tree.dart';
+import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/screens/home_screen.dart';
@@ -26,16 +28,17 @@ class _LoginFormState extends State<LoginForm> {
     FocusScope.of(context).unfocus();
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // .then(
-      //   (value) => navigateNextPage(
-      //     context,
-      //     const AuthWidgetTree(),
-      //   ),
-      // );
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+            email: email,
+            password: password,
+          )
+          .then(
+            (value) => navigateNextPage(
+              context,
+              const AuthWidgetTree(),
+            ),
+          );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print("No user found for that email.");
@@ -85,9 +88,7 @@ class _LoginFormState extends State<LoginForm> {
           fontStyle: AppFonts.normalRegularTextWhite,
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           press: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen(),));
+            _login();
           },
         ),
         Row(
