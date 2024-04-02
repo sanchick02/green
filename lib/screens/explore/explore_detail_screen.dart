@@ -48,7 +48,7 @@ class ExploreDetailScreen extends StatelessWidget {
                 alignment: Alignment.bottomLeft,
                 children: [
                   Image.asset(
-                    destinationInfo[0].image,
+                    destinationInfo[0].backgroundImage,
                     ),
                   Image.asset('lib/assets/images/gradient.png'),
                   Padding(
@@ -68,7 +68,7 @@ class ExploreDetailScreen extends StatelessWidget {
                               width: 11,),
                             ),
                             Text(
-                              (destinationInfo[0].state + ', ' + destinationInfo[0].region + ' Malaysia'),
+                              (destinationInfo[0].location + ', ' + destinationInfo[0].region! + ' Malaysia'),
                               style: AppFonts.extraSmallLightText,
                             ),
                           ],
@@ -81,7 +81,7 @@ class ExploreDetailScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
-                  destinationInfo[0].description,
+                  destinationInfo[0].longDescription!,
                   style: AppFonts.smallLightText,
                 ),
               ),
@@ -127,7 +127,7 @@ class DestinationsList extends StatelessWidget {
                       height: double.infinity,
                       width: 150,
                       child: Image.asset(
-                        eastMalaysiaDestinations[index].image,
+                        eastMalaysiaDestinations[index].backgroundImage,
                         //width: 150,
                         fit: BoxFit.fitHeight,
                       ),
@@ -159,7 +159,7 @@ class DestinationsList extends StatelessWidget {
                             Spacer(),
                             Container(
                               child: Text(
-                                eastMalaysiaDestinations[index].description,
+                                eastMalaysiaDestinations[index].longDescription!,
                                 style: AppFonts.extraSmallLightText,
                               ),
                             ),

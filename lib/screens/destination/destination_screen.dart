@@ -84,7 +84,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         style: AppFonts.heading3Height,
                       ),
                       Text(
-                        widget.destination.destinationDescription,
+                        widget.destination.destinationDescription!,
                         style: AppFonts.smallLightText,
                       ),
                       const SizedBox(height: 10),

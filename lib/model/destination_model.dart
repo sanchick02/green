@@ -13,16 +13,24 @@ class Destination implements DestinationDetailBase {
   final String location;
   @override
   final String backgroundImage;
-  final String destinationDescription;
+  final String? destinationDescription;
   @override
   final String? title;
+  final String? longDescription;
+  final String? locationTag;
+  final String? region;
+  final String? documentID;
 
   Destination({
     required this.destinationName,
     required this.location,
     required this.backgroundImage,
-    required this.destinationDescription,
+    this.destinationDescription,
     this.title,
+    this.longDescription,
+    this.locationTag,
+    this.region,
+    this.documentID,
   });
 }
 
