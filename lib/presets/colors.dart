@@ -38,6 +38,18 @@ class AppColor {
     );
   }
 
+  static LinearGradient whiteGradient3() {
+    return LinearGradient(
+      begin: Alignment.bottomCenter,
+      end: Alignment.topCenter,
+      colors: [
+        Colors.white.withOpacity(1),
+        Colors.white.withOpacity(0.4),
+        Colors.white.withOpacity(0.1),
+      ],
+    );
+  }
+
   static LinearGradient blackGradient() {
     return LinearGradient(
       begin: Alignment.bottomCenter,

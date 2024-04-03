@@ -11,13 +11,14 @@ class EditButtonCheckout extends StatelessWidget {
       height: 50, // Adjust height as needed
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColor.btnColorPrimary, // Example color
-        ),
+        color: AppColor.btnColorSecondary, // Example color
+      ),
       child: IconButton(
         onPressed: () {},
         icon: Image.asset(
           'lib/assets/icons/edit_button_icon.png',
-          width: 30,),
+          width: 20,
+        ),
       ),
     );
   }

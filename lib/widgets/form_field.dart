@@ -3,6 +3,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
+import 'package:green/presets/styles.dart';
 
 class CustomFormField extends StatelessWidget {
   final String label;
@@ -33,11 +34,11 @@ class CustomFormField extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: AppFonts.normalRegularText,
+                style: AppFonts.smallRegularText,
               ),
               SizedBox(
                 width: width,
-                height: 50,
+                height: 45,
                 child: Stack(
                   children: [
                     Container(
@@ -46,7 +47,7 @@ class CustomFormField extends StatelessWidget {
                         boxShadow: [
                           AppShadow.innerShadow3,
                         ],
-                        borderRadius: BorderRadius.circular(999),
+                        borderRadius: AppStyles.borderRadiusAll,
                       ),
                     ),
                     TextFormField(
@@ -60,7 +61,7 @@ class CustomFormField extends StatelessWidget {
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 15),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(999),
+                          borderRadius: AppStyles.borderRadiusAll,
                           borderSide: BorderSide.none,
                         ),
                       ),
