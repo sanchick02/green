@@ -3,8 +3,11 @@ import 'package:green/data/destinations.dart';
 import 'package:green/data/upcoming_trips.dart';
 import 'package:green/model/destination_model.dart';
 import 'package:green/screens/chatbot_screen.dart';
+import 'package:green/screens/checkout/checkout_screen.dart';
+import 'package:green/screens/checkout/payment_screen.dart';
 import 'package:green/screens/destination/destination_details_screen.dart';
 import 'package:green/screens/eastwest_stats_screen.dart';
+import 'package:green/screens/explore/explore_destinations_screen.dart';
 import 'package:green/screens/home_screen.dart';
 import 'package:green/screens/itinerary/saved_itinerary_screen.dart';
 import 'package:green/screens/itinerary/swipe_itinerary_screen.dart';
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // home: DestinationDetailsScreen(
       //   detail: flightDetailList[0],
       // ),
@@ -44,7 +48,9 @@ class MyApp extends StatelessWidget {
       // ),
       // home: BeGreenCommunityScreen(),
       // home: LandingScreen1(),
-      home: EastWestStatsScreen(),
+      // home: EastWestStatsScreen(),
+      // home: ExploreDestinationsScreen(),
+      home: PaymentScreen(),
     );
   }
 }

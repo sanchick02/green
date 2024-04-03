@@ -85,7 +85,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               'Add Card',
-                              style: AppFonts.normalRegularText,
+                              style: AppFonts.smallRegularText,
                             ),
                           ),
                           Ink(

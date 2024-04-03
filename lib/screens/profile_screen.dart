@@ -59,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const TopBarLogoNotif(),
                       Container(
-                        padding: const EdgeInsets.only(left: 15, top: 50),
+                        padding: const EdgeInsets.only(left: 15, top: 70),
                         height: 180,
                         child: Text(
                           "Profile",
@@ -96,11 +96,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Column(
                       children: [
                         Text(
-                          "Sam",
+                          "Sam Martin",
                           style: AppFonts.largeMediumText,
                         ),
                         Text(
-                          "Age: 24",
+                          "Age: 23",
                           style: AppFonts.smallLightText,
                         ),
                         const SizedBox(height: 5),
