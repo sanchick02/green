@@ -19,15 +19,7 @@ class TopBarLogoNotif extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance
-                  .signOut()
-                  .then((value) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AuthWidgetTree()),
-                      ));
-            },
+            onPressed: () {},
             icon: Image.asset(
               "lib/assets/icons/bell.png",
               width: 30,

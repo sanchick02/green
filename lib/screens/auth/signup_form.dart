@@ -72,6 +72,9 @@ class _SignUpFormState extends State<SignUpForm> {
           'profileImageURL': '',
           'date_of_birth': dateOfBirth,
           'age': age,
+          'reward_points': 0,
+          'carbon_footprint': 0.0,
+          'booking_id': '',
         },
       ).then(
         (value) => navigateNextPage(
