@@ -5,12 +5,14 @@ import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/provider/user_provider.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/destination_card.dart';
 import 'package:green/widgets/home_screen_widgets/statistics_tracker.dart';
 import 'package:green/widgets/package_carousel.dart';
 import 'package:green/widgets/topbar_logo_notif.dart';
 import 'package:green/widgets/upcomingtrips_carousel.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key});
@@ -23,7 +25,21 @@ class _HomeScreenState extends State<HomeScreen> {
   int carouselCurrentIndex = 0;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<UserProvider>(context, listen: false);
+    if (provider.userProviderData == '') {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    String name = provider.userProviderData!.firstName.toString();
+
     int points = 1;
     // Filter destinationList to include only destinations with "state" as "Sabah"
     final sabahDestinations = destinationList
@@ -50,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Welcome, Sam!",
+                      "Welcome, $name!",
                       style: AppFonts.largeMediumText,
                     ),
                   ],

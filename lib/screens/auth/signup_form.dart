@@ -76,7 +76,7 @@ class _SignUpFormState extends State<SignUpForm> {
       ).then(
         (value) => navigateNextPage(
           context,
-           const HomeScreen(),
+          const HomeScreen(),
           //   questions: questionsList,
           // ),
         ),
