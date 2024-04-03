@@ -5,6 +5,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/provider/user_provider.dart';
 import 'package:green/screens/home_screen.dart';
 // import 'package:green/providers/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -31,17 +32,18 @@ class _NavigationState extends State<Navigation> {
 
   @override
   void initState() {
-    // Provider.of<UserProvider>(context, listen: false).fetchUserData().then((_) {
-    //   setState(() {
-    //     _isLoading = false;
+    Provider.of<UserProvider>(context, listen: false).fetchUserData().then((_) {
+      setState(() {
+        _isLoading = false;
 
-    //   });
-    // });
-    pages = [
-      const HomeScreen(),
-    ];
-    setState(() {
-      _isLoading = false;
+        pages = [
+          const HomeScreen(),
+          // const ChatScreen1(),
+          // const Bazoot_Screen(),
+          // const CommunityScreen(),
+          // const ProfileScreen(),
+        ];
+      });
     });
 
     super.initState();

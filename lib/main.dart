@@ -3,6 +3,7 @@ import 'package:green/auth_widget_tree.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/data/upcoming_trips.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/provider/user_provider.dart';
 import 'package:green/screens/chatbot_screen.dart';
 import 'package:green/screens/destination/destination_details_screen.dart';
 import 'package:green/screens/eastwest_stats_screen.dart';
@@ -37,9 +38,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: AuthWidgetTree(),
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: UserProvider(),
+        ),
+      ],
+      child: const MaterialApp(
+        home: AuthWidgetTree(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
