@@ -1,25 +1,47 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:green/data/destinations.dart';
+import 'package:green/model/destination_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/providers/destination_provider.dart';
 import 'package:green/screens/explore/explore_detail_screen.dart';
 import 'package:green/widgets/explore_widgets/info_button.dart';
+import 'package:provider/provider.dart';
 
-class ExploreDestinationsScreen extends StatelessWidget {
+class ExploreDestinationsScreen extends StatefulWidget {
 
-  final List<String> imageList = ['lib/assets/images/langkawi.png', 'lib/assets/images/penang.png', 'lib/assets/images/genting.png', 'lib/assets/images/batu_caves.png'];
-  final List<String> destinationList = ['Langkawi', 'Penang', 'Genting Highland', 'Batu Caves'];
-  final List<String> categoryList = ['Beach', 'Food', 'High-Altitude', 'Nature'];
-  final List<String> shortDescriptionList = ['Where relaxation meets adventure, offering island hopping, jungle treks, and water sports amidst stunning scenery.', 
-  'A vibrant island destination celebrated for its rich cultural heritage, delicious street food, and colonial architecture.', 
-  'Malaysia\'s high-altitude getaway, boasting luxury resorts, shopping malls, and adrenaline-pumping adventures.',
-  ' Iconic limestone caves in Selangor, Malaysia, renowned for their Hindu temples and vibrant religious festivals.'];
-  
   ExploreDestinationsScreen({super.key});
 
   @override
+  State<ExploreDestinationsScreen> createState() => _ExploreDestinationsScreenState();
+}
+
+class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
+  final List<String> imageList = ['lib/assets/images/langkawi.png', 
+  'lib/assets/images/penang.png', 
+  'lib/assets/images/genting.png', 
+  'lib/assets/images/batu_caves.png'];
+
+  @override
   Widget build(BuildContext context) {
+
+    DestinationProvider destinationProvider = Provider.of<DestinationProvider>(context);
+    
+    //Access the destinationList from the DestinationProvider
+    List<Destination> destinationList = destinationProvider.destinationList
+    .where((destination) => destination.region == "West")
+    .toList();
+
+    List<String> destinationNames = [];
+
+    for (Destination destination in destinationList) {
+      destinationNames.add(destination.destinationName);
+    }
+
+    String dropdownValue = destinationNames.first;
+
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       body: SafeArea(
@@ -32,7 +54,7 @@ class ExploreDestinationsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      'lib/assets/images/topbar_logo.png',
+                      'lib/assets/images/logo_auth.png',
                       width: 100,
                     ),
                     Padding(
@@ -42,7 +64,19 @@ class ExploreDestinationsScreen extends StatelessWidget {
                         style: AppFonts.largeMediumText,
                       ),
                     ),
-                    SizedBox(height: 50,), // Search Bar
+                    DropdownMenu<String>(
+                      //menuHeight: 20,
+                      initialSelection: destinationNames.first,
+                      onSelected: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue = value!;
+                        });
+                      },
+                      dropdownMenuEntries: destinationNames.map<DropdownMenuEntry<String>>((String value) {
+                        return DropdownMenuEntry<String>(value: value, label: value);
+                      }).toList(),
+                    ),// Search Bar
                     Text(
                       'Popular Destinations in West Malaysia',
                       style: AppFonts.normalRegularText,
@@ -50,10 +84,11 @@ class ExploreDestinationsScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
               // List view for destinations
               Expanded(
                 child: ListView.builder(
-                  itemCount: destinationList.length,
+                  itemCount: 4,
                   itemBuilder: ((context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -74,7 +109,7 @@ class ExploreDestinationsScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      destinationList[index],
+                                      destinationList[index].destinationName,
                                       style: AppFonts.normalRegularText,
                                     ),
                                     Spacer(),
@@ -87,14 +122,14 @@ class ExploreDestinationsScreen extends StatelessWidget {
                                       width: 100,
                                       //height: 20,
                                       child: Text(
-                                        categoryList[index],
+                                        destinationList[index].locationTag ?? "No tag available",
                                         style: AppFonts.extraSmallLightText,
                                       ),
                                     ),
                                     Spacer(),
                                     Container(
                                       child: Text(
-                                        shortDescriptionList[index],
+                                        destinationList[index].destinationDescription ?? "Not available",
                                         style: AppFonts.extraSmallLightText,
                                       ),
                                     ),
@@ -104,8 +139,8 @@ class ExploreDestinationsScreen extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => 
-                                          ExploreDetailScreen(destinationName: destinationList[index],
-                                          locationTag: categoryList[index],),
+                                          ExploreDetailScreen(destinationName: destinationList[index].destinationName,
+                                          locationTag: destinationList[index].locationTag ?? "Unknown",),
                                         ),
                                       );
                                     }, 

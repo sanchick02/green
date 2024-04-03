@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/model/destination_model.dart';
 import 'package:green/presets/colors.dart';

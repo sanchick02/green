@@ -1,28 +1,29 @@
-// Define AccommodationDetail class
 import 'package:green/model/destination_model.dart';
 
-class AccommodationDetail implements DestinationDetailBase {
+class TourDetail implements DestinationDetailBase {
   @override
   final String destinationName;
   @override
   final String title;
   @override
   final String backgroundImage;
-  final String destination;
   @override
   final String location;
   final double price;
   final String description;
+  final String description2;
   final List<String> photos;
+  final String descriptionShort;
 
-  AccommodationDetail({
+  TourDetail({
+    required this.descriptionShort,
     required this.destinationName,
     required this.title,
     required this.backgroundImage,
-    required this.destination,
     required this.location,
     required this.price,
     required this.description,
+    required this.description2,
     required this.photos,
   });
 }

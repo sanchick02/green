@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/model/destination_model.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/providers/destination_provider.dart';
 import 'package:green/widgets/explore_widgets/explore_app_bar.dart';
 import 'package:green/widgets/explore_widgets/info_button.dart';
+import 'package:provider/provider.dart';
 
 class ExploreDetailScreen extends StatelessWidget {
 
@@ -15,27 +17,35 @@ class ExploreDetailScreen extends StatelessWidget {
     required this.locationTag,
   });
 
-  List<Destination> get destinationInfo {
-    return destinationList
-        .where((destination) => destination.destinationName == destinationName)
-        .toList();
-  }
+  // List<Destination> get destinationInfo {
+  //   return destinationList
+  //       .where((destination) => destination.destinationName == destinationName)
+  //       .toList();
+  // }
 
-  List<Destination> get eastMalaysiaDestinations {
-    return destinationList
-        .where((destination) => destination.locationTag == locationTag 
-          && destination.region == "East")
-        .toList();
-  }
-
-  //final String image = 'lib/assets/images/langkawi2.png';
-  //final destination = 'Langkawi';
-  //final String location = 'Kedah, West Malaysia';
-  //final String description = 'Nestled in the tranquil embrace of the Andaman Sea, Langkawi beckons travelers with its captivating blend of natural wonders and cultural treasures. From the architectural marvels of the Langkawi Sky Bridge to the biodiverse wonders of Kilim Karst Geoforest Park, each attraction promises unforgettable moments of discovery and delight. Whether exploring pristine beaches or delving into centuries-old heritage sites, Langkawi offers a tapestry of experiences that leave a lasting impression on all who visit.';
-  //const ExploreDetailScreen({super.key});
+  // List<Destination> get eastMalaysiaDestinations {
+  //   return destinationList
+  //       .where((destination) => destination.locationTag == locationTag 
+  //         && destination.region == "East")
+  //       .toList();
+  // }
 
   @override
   Widget build(BuildContext context) {
+
+    DestinationProvider destinationProvider = Provider.of<DestinationProvider>(context);
+
+    destinationProvider.fetchDestinationData();
+    //Access the destinationList from the DestinationProvider
+
+    List<Destination> destinationInfo = destinationProvider.destinationList
+      .where((destination) => destination.destinationName == destinationName)
+      .toList();
+  
+    List<Destination> eastMalaysiaDestinations = destinationProvider.destinationList
+      .where((destination) => destination.region == "East" && destination.locationTag == locationTag)
+      .toList();
+
     return Scaffold(
       appBar: ExploreAppBar(title: 'Explore By Destinations'),
       extendBodyBehindAppBar: true,
@@ -85,6 +95,7 @@ class ExploreDetailScreen extends StatelessWidget {
                   style: AppFonts.smallLightText,
                 ),
               ),
+              
               Padding(
                 padding: const EdgeInsets.only(left: 15.0, right: 15),
                 child: Text(
@@ -92,7 +103,9 @@ class ExploreDetailScreen extends StatelessWidget {
                   style: AppFonts.normalRegularText,
                 ),
               ),
-              DestinationsList(eastMalaysiaDestinations: eastMalaysiaDestinations),
+              
+
+              DestinationsList(eastMalaysiaDestinations: eastMalaysiaDestinations, destinationList:destinationInfo),
             ],
           ),
         ),
@@ -104,12 +117,15 @@ class DestinationsList extends StatelessWidget {
   const DestinationsList({
     super.key,
     required this.eastMalaysiaDestinations,
+    required this.destinationList,
   });
 
   final List<Destination> eastMalaysiaDestinations;
+  final List<Destination> destinationList;
 
   @override
   Widget build(BuildContext context) {
+    
     return ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
@@ -159,7 +175,7 @@ class DestinationsList extends StatelessWidget {
                             Spacer(),
                             Container(
                               child: Text(
-                                eastMalaysiaDestinations[index].longDescription!,
+                                eastMalaysiaDestinations[index].longDescription ?? 'No long description available',
                                 style: AppFonts.extraSmallLightText,
                               ),
                             ),

@@ -5,6 +5,7 @@ class BeReal {
   final String location;
   final DateTime timestamp;
   final bool verified;
+  final int points;
 
   BeReal({
     required this.documentID,
@@ -13,5 +14,6 @@ class BeReal {
     required this.location,
     required this.timestamp,
     required this.verified,
+    required this.points,
   });
 }

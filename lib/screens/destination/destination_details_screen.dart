@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
+import 'package:green/model/acommodation_model.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/model/flight_detail_model.dart';
+import 'package:green/model/tour_detail_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
