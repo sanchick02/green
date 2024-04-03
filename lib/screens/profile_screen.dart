@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:green/auth_widget_tree.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
@@ -18,12 +20,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // void _signOut() async {
-  //   await FirebaseAuth.instance.signOut().then((value) => Navigator.push(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => const AuthWidgetTree()),
-  //       ));
-  // }
+  void _signOut() async {
+    await FirebaseAuth.instance.signOut().then((value) => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AuthWidgetTree()),
+        ));
+  }
 
   @override
   void initState() {
@@ -124,7 +126,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             const SizedBox(width: 10),
                             DefaultButton(
                               text: "Sign Out", // CHANGED THIS
-                              press: () {},
+                              press: () {
+                                _signOut();
+                              },
                               backgroundColor: AppColor.btnColorPrimary,
                               height: 30,
                               fontStyle: AppFonts.smallLightTextWhite,
@@ -151,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Row(
                                 children: [
                                   Image.asset(
-                                    "lib/assets/images/topbar_logo.png",
+                                    "lib/assets/images/logo.png",
                                     width: 60,
                                   ),
                                   const Spacer(),

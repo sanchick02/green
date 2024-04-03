@@ -17,7 +17,7 @@ class ChatbotScreen extends StatefulWidget {
 class _ChatbotScreenState extends State<ChatbotScreen> {
   final _openAI = OpenAI.instance.build(
       token: OPENAI_API_KEY,
-      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),
+      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 60)),
       enableLog: true);
   final ChatUser _currentUser = ChatUser(id: "1", firstName: "Charlie");
   final ChatUser _chatgptUser = ChatUser(id: "2", firstName: "Chatbot");

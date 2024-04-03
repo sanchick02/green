@@ -18,6 +18,9 @@ class UserModel {
   String imageURL;
   String dob;
   String age;
+  int rewardPoints;
+  double carbonFootprint;
+  String bookingid;
 
   UserModel({
     // required this.userID,
@@ -39,6 +42,9 @@ class UserModel {
     required this.imageURL,
     required this.dob,
     required this.age,
+    required this.rewardPoints,
+    required this.carbonFootprint,
+    required this.bookingid,
   });
 }
 
