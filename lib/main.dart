@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/data/upcoming_trips.dart';
-import 'package:green/firebase.dart';
 import 'package:green/firebase_options.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/navigation.dart';
 import 'package:green/providers/destination_provider.dart';
 import 'package:green/screens/chatbot_screen.dart';
 import 'package:green/screens/checkout/checkout_screen.dart';
@@ -26,14 +26,12 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-  
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
-class MyApp extends StatelessWidget {
 
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
@@ -56,7 +54,7 @@ class MyApp extends StatelessWidget {
         // ),
         // home: BeGreenCommunityScreen(),
         // home: LandingScreen1(),
-        home: ExploreDestinationsScreen(),
+        home: Navigation(),
       ),
     );
   }
