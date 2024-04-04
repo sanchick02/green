@@ -91,35 +91,35 @@ class _NavigationState extends State<Navigation> {
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/home.png",
-                    width: 40,
+                    width: 25,
                   ),
                   label: 'Home',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/itinerary.png",
-                    width: 40,
+                    width: 28,
                   ),
                   label: 'Itinerary',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/chatbot.png",
-                    width: 40,
+                    width: 28,
                   ),
-                  label: 'Chatbot',
+                  label: 'Bazoot',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/nowaste.png",
-                    width: 40,
+                    width: 30,
                   ),
-                  label: 'NoWaste',
+                  label: 'BeGreen',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/profile.png",
-                    width: 40,
+                    width: 22,
                   ),
                   label: 'Profile',
                 ),

@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
-import 'package:flutter/widgets.dart';
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 //import 'package:green/data/questions.dart';
 import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
+import 'package:green/presets/styles.dart';
 import 'package:green/screens/home_screen.dart';
 //import 'package:green/screens/questions/question_screen.dart';
 import 'package:green/widgets/button.dart';
@@ -158,7 +159,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   children: [
                     Text(
                       "Gender",
-                      style: AppFonts.normalRegularText,
+                      style: AppFonts.smallRegularText,
                     ),
                     StatefulBuilder(
                       builder: (context, setState) {
@@ -170,7 +171,7 @@ class _SignUpFormState extends State<SignUpForm> {
                                 boxShadow: [
                                   AppShadow.innerShadow3,
                                 ],
-                                borderRadius: BorderRadius.circular(999),
+                                borderRadius: BorderRadius.circular(5),
                               ),
                             ),
                             GenderToggle(
@@ -202,7 +203,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 children: [
                   Text(
                     "Date of Birth",
-                    style: AppFonts.normalRegularText,
+                    style: AppFonts.smallRegularText,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -215,7 +216,7 @@ class _SignUpFormState extends State<SignUpForm> {
                             boxShadow: [
                               AppShadow.innerShadow3,
                             ],
-                            borderRadius: BorderRadius.circular(999),
+                            borderRadius: AppStyles.borderRadiusAll,
                           ),
                         ),
                         Positioned.fill(

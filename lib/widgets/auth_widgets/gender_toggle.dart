@@ -28,7 +28,7 @@ class GenderToggleState extends State<GenderToggle> {
       onPressed: widget.onPressed,
       isSelected: widget.isSelected,
       borderColor: Colors.transparent,
-      borderRadius: BorderRadius.circular(999),
+      borderRadius: BorderRadius.circular(5),
       children: [
         _buildToggleButton("Male", widget.isSelected[0]),
         _buildToggleButton("Female", widget.isSelected[1]),
@@ -42,32 +42,32 @@ class GenderToggleState extends State<GenderToggle> {
     if (widget.isSelected[0]) {
       borderRadius = isSelected
           ? const BorderRadius.only(
-              topLeft: Radius.circular(999),
-              bottomLeft: Radius.circular(999),
+              topLeft: Radius.circular(5),
+              bottomLeft: Radius.circular(5),
             )
           : const BorderRadius.only(
-              topRight: Radius.circular(999),
-              bottomRight: Radius.circular(999),
+              topRight: Radius.circular(5),
+              bottomRight: Radius.circular(5),
             );
     } else if (widget.isSelected[1]) {
       borderRadius = isSelected
           ? const BorderRadius.only(
-              topRight: Radius.circular(999),
-              bottomRight: Radius.circular(999),
+              topRight: Radius.circular(5),
+              bottomRight: Radius.circular(5),
             )
           : const BorderRadius.only(
-              topLeft: Radius.circular(999),
-              bottomLeft: Radius.circular(999),
+              topLeft: Radius.circular(5),
+              bottomLeft: Radius.circular(5),
             );
     } else {
       borderRadius = isSelected
           ? const BorderRadius.only(
-              topLeft: Radius.circular(999),
-              bottomLeft: Radius.circular(999),
+              topLeft: Radius.circular(5),
+              bottomLeft: Radius.circular(5),
             )
           : const BorderRadius.only(
-              topRight: Radius.circular(999),
-              bottomRight: Radius.circular(999),
+              topRight: Radius.circular(5),
+              bottomRight: Radius.circular(5),
             );
     }
 

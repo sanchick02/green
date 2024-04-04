@@ -5,7 +5,6 @@ import 'package:green/auth_widget_tree.dart';
 import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
-import 'package:green/screens/home_screen.dart';
 import 'package:green/widgets/form_field.dart';
 import 'package:green/widgets/button.dart';
 
@@ -74,7 +73,7 @@ class _LoginFormState extends State<LoginForm> {
               padding: const EdgeInsets.only(right: 5),
               child: Text(
                 "Forgot Password",
-                style: AppFonts.smallLightText,
+                style: AppFonts.extraSmallLightText,
               ),
             ),
           ],
@@ -106,7 +105,9 @@ class _LoginFormState extends State<LoginForm> {
         OutlinedButton(
           onPressed: () {},
           style: ButtonStyle(
-            side: MaterialStatePropertyAll(
+            shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5)))),
+            side: MaterialStateProperty.all(
               BorderSide(
                 width: 1,
                 color: AppColor.fontColorPrimary,

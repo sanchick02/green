@@ -51,7 +51,7 @@ class TopBar extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: AppFonts.heading1,
+                    style: AppFonts.heading2,
                   ),
                 ],
               ),

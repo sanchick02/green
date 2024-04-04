@@ -47,6 +47,13 @@ class AppFonts {
     color: AppColor.fontColorPrimary,
   );
 
+  static TextStyle largeMediumText2 = TextStyle(
+    fontFamily: "LeagueSpartan",
+    fontSize: 23,
+    fontWeight: FontWeight.w500, // large medium
+    color: AppColor.fontColorPrimary,
+  );
+
   // static TextStyle largeMediumTextHeight = TextStyle(
   //   fontFamily: "LeagueSpartan",
   //   fontSize: 24,

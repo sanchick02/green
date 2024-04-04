@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/auth_widget_tree.dart';
+import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/screens/redeem_greenpts_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/divider_line.dart';
 import 'package:green/widgets/radial_gauge.dart';
@@ -119,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               press: () {},
                               backgroundColor: AppColor.btnColorPrimary,
                               height: 30,
-                              fontStyle: AppFonts.smallLightTextWhite,
+                              fontStyle: AppFonts.extraSmallLightTextWhite,
                               width: 120,
                               padding: EdgeInsets.zero,
                             ),
@@ -131,7 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               },
                               backgroundColor: AppColor.btnColorPrimary,
                               height: 30,
-                              fontStyle: AppFonts.smallLightTextWhite,
+                              fontStyle: AppFonts.extraSmallLightTextWhite,
                               width: 120,
                               padding: EdgeInsets.zero,
                             )
@@ -161,10 +163,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   const Spacer(),
                                   DefaultButton(
                                     text: "Redeem",
-                                    press: () {},
+                                    press: () {
+                                      navigateNextPage(
+                                        context,
+                                        const RedeemGreenPtsScreen(),
+                                      );
+                                    },
                                     backgroundColor: AppColor.btnColorPrimary,
                                     height: 30,
-                                    fontStyle: AppFonts.smallLightTextWhite,
+                                    fontStyle:
+                                        AppFonts.extraSmallLightTextWhite,
                                     width: 70,
                                     padding: EdgeInsets.zero,
                                   ),
@@ -180,6 +188,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Column(
                                     children: [
+                                      Image.asset(
+                                        "lib/assets/images/greenpts.png",
+                                        width: 40,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
                                       Text(
                                         "SILVER",
                                         style: AppFonts.normalRegularText,
