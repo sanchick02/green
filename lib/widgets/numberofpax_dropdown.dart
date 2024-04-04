@@ -5,14 +5,22 @@ import 'package:green/widgets/divider_line.dart';
 
 class NumberOfPaxDropdown extends StatelessWidget {
   final List<int> items;
-  final int? selectedValue;
-  final ValueChanged<int?> onChanged;
+  final int? selectedAdultValue;
+  final int? selectedKidValue;
+  final int? selectedSeniorValue;
+  final ValueChanged<int?> onAdultChanged;
+  final ValueChanged<int?> onKidChanged;
+  final ValueChanged<int?> onSeniorChanged;
 
   const NumberOfPaxDropdown({
     Key? key,
     required this.items,
-    required this.selectedValue,
-    required this.onChanged,
+    required this.selectedAdultValue,
+    required this.selectedKidValue,
+    required this.selectedSeniorValue,
+    required this.onAdultChanged,
+    required this.onKidChanged,
+    required this.onSeniorChanged,
   }) : super(key: key);
 
   @override
@@ -21,12 +29,14 @@ class NumberOfPaxDropdown extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         DropdownButton2<int>(
+          // Adult dropdown
           underline: const DividerLine(),
           iconStyleData: IconStyleData(
-              icon: Image.asset(
-            "lib/assets/icons/arrowdown.png",
-            width: 13,
-          )),
+            icon: Image.asset(
+              "lib/assets/icons/arrowdown.png",
+              width: 13,
+            ),
+          ),
           isExpanded: true,
           hint: Text(
             'Adult',
@@ -41,8 +51,8 @@ class NumberOfPaxDropdown extends StatelessWidget {
                     ),
                   ))
               .toList(),
-          value: selectedValue,
-          onChanged: onChanged,
+          value: selectedAdultValue,
+          onChanged: onAdultChanged,
           buttonStyleData: ButtonStyleData(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
@@ -53,12 +63,14 @@ class NumberOfPaxDropdown extends StatelessWidget {
           menuItemStyleData: const MenuItemStyleData(height: 40),
         ),
         DropdownButton2<int>(
+          // Kid dropdown
           underline: const DividerLine(),
           iconStyleData: IconStyleData(
-              icon: Image.asset(
-            "lib/assets/icons/arrowdown.png",
-            width: 13,
-          )),
+            icon: Image.asset(
+              "lib/assets/icons/arrowdown.png",
+              width: 13,
+            ),
+          ),
           isExpanded: true,
           hint: Text(
             'Kid',
@@ -73,24 +85,26 @@ class NumberOfPaxDropdown extends StatelessWidget {
                     ),
                   ))
               .toList(),
-          value: selectedValue,
-          onChanged: onChanged,
+          value: selectedKidValue,
+          onChanged: onKidChanged,
           buttonStyleData: ButtonStyleData(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
             height: 75,
-            width: (MediaQuery.of(context).size.width - 30) / 3,
+            width: (MediaQuery.of(context).size.width - 20) / 3,
           ),
           menuItemStyleData: const MenuItemStyleData(height: 40),
         ),
         DropdownButton2<int>(
+          // Senior dropdown
           underline: const DividerLine(),
           iconStyleData: IconStyleData(
-              icon: Image.asset(
-            "lib/assets/icons/arrowdown.png",
-            width: 13,
-          )),
+            icon: Image.asset(
+              "lib/assets/icons/arrowdown.png",
+              width: 13,
+            ),
+          ),
           isExpanded: true,
           hint: Text(
             'Senior',
@@ -105,14 +119,14 @@ class NumberOfPaxDropdown extends StatelessWidget {
                     ),
                   ))
               .toList(),
-          value: selectedValue,
-          onChanged: onChanged,
+          value: selectedSeniorValue,
+          onChanged: onSeniorChanged,
           buttonStyleData: ButtonStyleData(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
             height: 75,
-            width: (MediaQuery.of(context).size.width - 80) / 3,
+            width: (MediaQuery.of(context).size.width - 40) / 3,
           ),
           menuItemStyleData: const MenuItemStyleData(height: 40),
         ),
