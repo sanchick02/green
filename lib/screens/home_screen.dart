@@ -11,7 +11,6 @@ import 'package:green/screens/explore/explore_destinations_screen.dart';
 import 'package:green/screens/statistics_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/destination_card.dart';
-import 'package:green/widgets/form_field.dart';
 import 'package:green/widgets/home_screen_widgets/statistics_tracker.dart';
 import 'package:green/widgets/package_carousel.dart';
 import 'package:green/widgets/topbar_logo_notif.dart';
