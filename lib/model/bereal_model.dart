@@ -1,19 +1,21 @@
 class BeReal {
-  final String documentID;
-  final String userID;
-  final String mediaURL;
-  final String location;
-  final DateTime timestamp;
-  final bool verified;
-  final int points;
+  String uid; //
+  String pid;
+  String userImage;
+  String userName;
+  String time;
+  String postImage;
+  int likes;
+  String greenRewards;
 
   BeReal({
-    required this.documentID,
-    required this.userID,
-    required this.mediaURL,
-    required this.location,
-    required this.timestamp,
-    required this.verified,
-    required this.points,
+    required this.uid,
+    required this.pid,
+    required this.userImage,
+    required this.userName,
+    required this.time,
+    required this.postImage,
+    required this.likes,
+    required this.greenRewards,
   });
 }
