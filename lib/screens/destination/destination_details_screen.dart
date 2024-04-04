@@ -21,9 +21,8 @@ class DestinationDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final price = detail.price;
-    
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
