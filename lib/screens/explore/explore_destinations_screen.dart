@@ -3,10 +3,10 @@ import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/screens/explore/explore_detail_screen.dart';
+import 'package:green/widgets/back_button_top.dart';
 import 'package:green/widgets/button.dart';
 
 class ExploreDestinationsScreen extends StatelessWidget {
-
   final List<String> imageList = [
     'lib/assets/images/langkawi.png',
     'lib/assets/images/penang.png',
@@ -47,9 +47,22 @@ class ExploreDestinationsScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Column(
                   children: [
-                    Image.asset(
-                      'lib/assets/images/topbar_logo.png',
-                      width: 100,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BackButtonTop(onBackButtonPressed: () {
+                          Navigator.pop(context);
+                        }),
+                        Spacer(),
+                        Image.asset(
+                          'lib/assets/images/topbar_logo.png',
+                          width: 100,
+                        ),
+                        SizedBox(
+                          width: (MediaQuery.of(context).size.width - 135) / 2,
+                          height: 50,
+                        )
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),

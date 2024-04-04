@@ -3,6 +3,7 @@ import 'package:green/auth_widget_tree.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/data/upcoming_trips.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/presets/colors.dart';
 import 'package:green/provider/user_provider.dart';
 import 'package:green/screens/chatbot_screen.dart';
 import 'package:green/screens/destination/destination_details_screen.dart';
@@ -44,9 +45,15 @@ class MyApp extends StatelessWidget {
           value: UserProvider(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         home: AuthWidgetTree(),
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: AppColor
+              .btnColorPrimary, // Change this to your desired primary color
+          fontFamily:
+              'LeagueSpartan', // Change this to your desired font family
+        ),
       ),
     );
   }

@@ -1,24 +1,24 @@
 import 'package:green/model/nowaste_posts_model.dart';
 
-List<NoWastePost> noWastePostList = [
-  NoWastePost(
-    image: "lib/assets/images/nowaste1.webp",
-    greenPts: "+20",
+List<BeGreen> beGreenCardList = [
+  BeGreen(
+    image: "lib/assets/images/begreencard1.png",
+    greenPts: "50",
   ),
-  NoWastePost(
-    image: "lib/assets/images/nowaste2.jpg",
-    greenPts: "+20",
+  BeGreen(
+    image: "lib/assets/images/begreencard2.webp",
+    greenPts: "20",
   ),
-  NoWastePost(
-    image: "lib/assets/images/nowaste3.jpg",
-    greenPts: "+20",
+  BeGreen(
+    image: "lib/assets/images/begreencard3.png",
+    greenPts: "30",
   ),
-  NoWastePost(
-    image: "lib/assets/images/nowaste4.jpeg",
-    greenPts: "+20",
+  BeGreen(
+    image: "lib/assets/images/begreencard4.png",
+    greenPts: "20",
   ),
-  NoWastePost(
-    image: "lib/assets/images/nowaste5.jpeg",
-    greenPts: "+20",
+  BeGreen(
+    image: "lib/assets/images/begreencard5.png",
+    greenPts: "20",
   ),
 ];

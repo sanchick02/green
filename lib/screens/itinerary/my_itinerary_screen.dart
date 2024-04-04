@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:green/data/destinations.dart';
+import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/screens/itinerary/saved_itinerary_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/custom_datepicker.dart';
 import 'package:green/widgets/filter_button.dart';
@@ -119,7 +121,9 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                     ),
                     DefaultButton(
                       text: "View Saved Itinerary",
-                      press: () {},
+                      press: () {
+                        navigateNextPage(context, SavedItineraryScreen());
+                      },
                       backgroundColor: AppColor.btnColorPrimary,
                       height: 35,
                       fontStyle: AppFonts.extraSmallLightTextWhite,

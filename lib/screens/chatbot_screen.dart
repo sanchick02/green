@@ -20,7 +20,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 60)),
       enableLog: true);
   final ChatUser _currentUser = ChatUser(id: "1", firstName: "Charlie");
-  final ChatUser _chatgptUser = ChatUser(id: "2", firstName: "Chatbot");
+  final ChatUser _chatgptUser = ChatUser(id: "2", firstName: "Bazoot");
   List<ChatMessage> _messages = <ChatMessage>[];
   List<ChatUser> _typingUser = <ChatUser>[];
   @override
@@ -47,7 +47,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Chatbot",
+                          "Bazoot",
                           style: AppFonts.heading3Height,
                         ),
                         Text(

@@ -14,7 +14,7 @@ class TopBarLogoNotif extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "lib/assets/images/logo.png",
+            "lib/assets/images/topbar_logo.png",
             width: 80,
           ),
           const Spacer(),

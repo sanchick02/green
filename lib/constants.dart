@@ -10,4 +10,4 @@
 
 // const String cacheUserIDKey = 'cache_user_id_key';
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
