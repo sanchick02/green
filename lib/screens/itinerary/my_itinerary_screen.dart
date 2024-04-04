@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';

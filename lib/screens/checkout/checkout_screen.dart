@@ -24,7 +24,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   bool greenPointsOn = true;
   @override
   Widget build(BuildContext context) {
-    final checkoutActivites = activtiesList.toList();
+    final checkoutActivites = activitiesList.toList();
 
     final checkoutAcommodation = bookingList
         // .where((Accommodation) => Accommodation.accommodationID == )
