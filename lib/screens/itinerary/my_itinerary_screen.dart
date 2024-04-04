@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:green/data/activities_data.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/data/destinations.dart';
+import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/screens/itinerary/saved_itinerary_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/custom_datepicker.dart';
 import 'package:green/widgets/filter_button.dart';
@@ -21,6 +24,14 @@ class MyItineraryScreen extends StatefulWidget {
 class _MyItineraryScreenState extends State<MyItineraryScreen> {
   List<bool> buttonStates =
       List.filled(8, false); // List to track button states
+
+  int? selectedStartDayValue;
+  String? selectedStartMonthValue;
+  int? selectedStartYearValue;
+  int? selectedEndDayValue;
+  String? selectedEndMonthValue;
+  int? selectedEndYearValue;
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +65,51 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                       "Create an Itinerary",
                       style: AppFonts.normalRegularText,
                     ),
-                    const SizedBox(
-                      height: 50, // TextFormField for search bar
+                    SizedBox(
+                      height: 5,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.fontColorSecondary,
+                              boxShadow: [
+                                AppShadow.innerShadow3,
+                              ],
+                              borderRadius: AppStyles.borderRadiusAll,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _searchController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              filled: true,
+                              fillColor: Colors.transparent,
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 15),
+                              border: OutlineInputBorder(
+                                borderRadius: AppStyles.borderRadiusAll,
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                            style: AppFonts.smallRegularText,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Image.asset(
+                              "lib/assets/icons/search.png",
+                              width: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                     Text(
                       "Select Keywords of Your Interest",
@@ -75,7 +129,44 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                   ],
                 ),
               ),
-              const CustomDatePicker(),
+              CustomDatePicker(
+                selectedStartDateValue: selectedStartDayValue,
+                selectedStartMonthValue: selectedStartMonthValue,
+                selectedStartYearValue: selectedStartYearValue,
+                selectedEndDateValue: selectedEndDayValue,
+                selectedEndMonthValue: selectedEndMonthValue,
+                selectedEndYearValue: selectedEndYearValue,
+                onStartDateChanged: (int? value) {
+                  setState(() {
+                    selectedStartDayValue = value;
+                  });
+                },
+                onStartMonthChanged: (String? value) {
+                  setState(() {
+                    selectedStartMonthValue = value;
+                  });
+                },
+                onStartYearChanged: (int? value) {
+                  setState(() {
+                    selectedStartYearValue = value;
+                  });
+                },
+                onEndDateChanged: (int? value) {
+                  setState(() {
+                    selectedEndDayValue = value;
+                  });
+                },
+                onEndMonthChanged: (String? value) {
+                  setState(() {
+                    selectedEndMonthValue = value;
+                  });
+                },
+                onEndYearChanged: (int? value) {
+                  setState(() {
+                    selectedEndYearValue = value;
+                  });
+                },
+              ),
               const SizedBox(
                 height: 30,
               ),
@@ -120,7 +211,9 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                     ),
                     DefaultButton(
                       text: "View Saved Itinerary",
-                      press: () {},
+                      press: () {
+                        navigateNextPage(context, const SavedItineraryScreen());
+                      },
                       backgroundColor: AppColor.btnColorPrimary,
                       height: 35,
                       fontStyle: AppFonts.extraSmallLightTextWhite,
