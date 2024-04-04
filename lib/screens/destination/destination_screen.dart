@@ -118,7 +118,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 AppBar(
                   backgroundColor: Colors.transparent,
                   title: Text(
-                    "Your Upcoming Trip Details",
+                    "Destination",
                     style: AppFonts.normalRegularText,
                   ),
                   leading: IconButton(

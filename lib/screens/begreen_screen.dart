@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green/model/bereal_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/presets/styles.dart';
 import 'package:green/provider/begreen_post_provider.dart';
 import 'package:green/provider/user_provider.dart';
 import 'package:green/screens/begreen.dart';
@@ -29,46 +30,6 @@ class _BeGreenScreenState extends State<BeGreenScreen> {
         likes: 0),
   ];
 
-  void _addExpense(BeReal beRealPost) {
-    setState(() {
-      _registeredExpenses.add(beRealPost);
-      _registeredExpenses.sort((a, b) => b.time.compareTo(a.time));
-    });
-  }
-
-  void _removeExpense(BeReal beRealPost) {
-    final expenseIndex = _registeredExpenses.indexOf(beRealPost);
-    _registeredExpenses.remove(beRealPost);
-
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 3),
-      content: const Text('Forum Deleted'),
-      action: SnackBarAction(
-        label: 'Undo',
-        onPressed: () {
-          setState(() {
-            _registeredExpenses.insert(expenseIndex, beRealPost);
-          });
-        },
-      ),
-    ));
-  }
-
-  @override
-  void initState() {
-    Provider.of<BeGreenProvider>(context, listen: false)
-        .fetchUserData()
-        .then((_) {
-      setState(() {
-        // _registeredExpenses;
-        // _registeredExpenses.sort((a, b) => b.time.compareTo(a.time));
-      });
-    });
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var _provider = Provider.of<UserProvider>(context);
@@ -88,27 +49,21 @@ class _BeGreenScreenState extends State<BeGreenScreen> {
           child: Column(
             children: [
               const TopBarLogoNotif(),
-              const Padding(
-                padding: EdgeInsets.only(left: 15),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 15, bottom: 15, left: 15, right: 15),
+              Container(
+                margin: EdgeInsets.only(top: 15, bottom: 30),
+                width: double.infinity,
+                constraints: BoxConstraints(minHeight: 100),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 15, right: 15, top: 3, bottom: 13),
-                      child: Row(
-                        children: [
-                          Text(
-                            "BeGreen Community",
-                            style: AppFonts.normalRegularText,
-                          ),
-                          mainContent,
-                        ],
+                      padding: AppStyles.edgeInsetsLR,
+                      child: Text(
+                        "BeGreen Community",
+                        style: AppFonts.normalRegularText,
                       ),
                     ),
+                    mainContent,
                   ],
                 ),
               ),

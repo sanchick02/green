@@ -15,7 +15,7 @@ import 'package:green/screens/itinerary/swipe_itinerary_screen.dart';
 import 'package:green/screens/landing/landing_screen.dart';
 import 'package:green/screens/landing/landing_screen1.dart';
 import 'package:green/screens/itinerary/my_itinerary_screen.dart';
-import 'package:green/screens/begreen_community_screen.dart';
+import 'package:green/screens/begreen_item.dart';
 import 'package:green/screens/profile_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:green/screens/landing/question_screen.dart';

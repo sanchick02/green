@@ -88,7 +88,10 @@ class _SwipeItineraryScreenState extends State<SwipeItineraryScreen> {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                      ;
+                    },
                     icon: Image.asset(
                       "lib/assets/icons/arrow_back_gray_small.png",
                       width: 40,

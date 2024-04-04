@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green/auth_widget_tree.dart';
+import 'package:green/page_navigator.dart';
+import 'package:green/presets/colors.dart';
 import 'package:green/screens/begreen.dart';
-import 'package:green/screens/begreen_community_screen.dart';
+import 'package:green/screens/begreen_item.dart';
 
 class TopBarLogoNotif extends StatelessWidget {
   const TopBarLogoNotif({
@@ -20,20 +22,28 @@ class TopBarLogoNotif extends StatelessWidget {
             width: 80,
           ),
           const Spacer(),
-          IconButton(
+          ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BeGreen(),
-                ),
-              );
+              navigateNextPage(context, BeGreen());
             },
-            icon: Image.asset(
-              "lib/assets/icons/bell.png",
-              width: 30,
+            style: ButtonStyle(
+              padding: const MaterialStatePropertyAll(EdgeInsets.zero),
+              backgroundColor:
+                  MaterialStatePropertyAll(AppColor.btnColorSecondary),
+              shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(999.0),
+                ),
+              ),
+              minimumSize: MaterialStateProperty.all(
+                  const Size(50, 50)), // Set minimum size
             ),
-          ),
+            child: Image.asset(
+              "lib/assets/icons/nowaste.png",
+              width: 30,
+              height: 30,
+            ),
+          )
         ],
       ),
     );

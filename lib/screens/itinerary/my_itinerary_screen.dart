@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/screens/itinerary/saved_itinerary_screen.dart';
 import 'package:green/widgets/button.dart';
@@ -29,6 +31,7 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
   int? selectedEndDayValue;
   String? selectedEndMonthValue;
   int? selectedEndYearValue;
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +65,51 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                       "Create an Itinerary",
                       style: AppFonts.normalRegularText,
                     ),
-                    const SizedBox(
-                      height: 50, // TextFormField for search bar
+                    SizedBox(
+                      height: 5,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 40,
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.fontColorSecondary,
+                              boxShadow: [
+                                AppShadow.innerShadow3,
+                              ],
+                              borderRadius: AppStyles.borderRadiusAll,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _searchController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              filled: true,
+                              fillColor: Colors.transparent,
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 15),
+                              border: OutlineInputBorder(
+                                borderRadius: AppStyles.borderRadiusAll,
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                            style: AppFonts.smallRegularText,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Image.asset(
+                              "lib/assets/icons/search.png",
+                              width: 20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                     Text(
                       "Select Keywords of Your Interest",
@@ -166,7 +212,7 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                     DefaultButton(
                       text: "View Saved Itinerary",
                       press: () {
-                        navigateNextPage(context, SavedItineraryScreen());
+                        navigateNextPage(context, const SavedItineraryScreen());
                       },
                       backgroundColor: AppColor.btnColorPrimary,
                       height: 35,
