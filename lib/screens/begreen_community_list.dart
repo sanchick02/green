@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green/provider/begreen_post_provider.dart';
-import 'package:green/screens/begreen_community_screen.dart';
+import 'package:green/screens/begreen_item.dart';
 import 'package:provider/provider.dart';
 
 class BeGreenList extends StatelessWidget {
@@ -19,7 +19,7 @@ class BeGreenList extends StatelessWidget {
           onDismissed: (direction) {
             // onRemovePost(_provider.forumPosts[index], context);
           },
-          child: BeGreemItem(beRealPost: _provider.forumPosts[index]),
+          child: BeGreenItem(beRealPost: _provider.forumPosts[index]),
         ),
       ),
     );

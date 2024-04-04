@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:green/main.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/presets/styles.dart';
 import 'package:green/widgets/button.dart';
+import 'package:green/widgets/divider_line.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
@@ -38,7 +40,7 @@ class _BeGreenState extends State<BeGreen> {
   void loadCamera() async {
     _cameraReadyCompleter = Completer<void>();
 
-    cameraController = CameraController(cameras![1], ResolutionPreset.medium);
+    cameraController = CameraController(cameras![0], ResolutionPreset.high);
 
     await cameraController!.initialize().then((_) {
       if (!mounted) {
@@ -88,7 +90,7 @@ class _BeGreenState extends State<BeGreen> {
           .collection('users')
           .doc(currentUser.uid)
           .get();
-      BeGreenReward = '200 Points';
+      BeGreenReward = '50 Points';
 
       // upload image to firebase storage
       final ref = FirebaseStorage.instance
@@ -217,18 +219,13 @@ class _BeGreenState extends State<BeGreen> {
                             children: [
                               const SizedBox(height: 60),
                               Text(
-                                "Congratulations!!! You have earned",
-                                style: AppFonts.largeMediumText,
+                                "Congratulations! You have earned",
+                                style: AppFonts.normalRegularText,
                               ),
                               const SizedBox(height: 5),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 60),
-                                child: Container(
-                                  color: AppColor.fontColorPrimary,
-                                  width: double.infinity,
-                                  height: 0.8,
-                                ),
+                              const Padding(
+                                padding: AppStyles.edgeInsetsLR,
+                                child: DividerLine(),
                               ),
                               const SizedBox(height: 10),
                               Padding(
@@ -268,13 +265,13 @@ class _BeGreenState extends State<BeGreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 15,
+                            height: 30,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 60),
                             child: DefaultButton(
                               press: rescan,
-                              text: "Rescan My Face",
+                              text: "Retake a photo",
                               backgroundColor: AppColor.btnColorPrimary,
                               height: 40,
                               fontStyle: AppFonts.normalRegularTextWhite,
@@ -339,17 +336,12 @@ class _BeGreenState extends State<BeGreen> {
                               const SizedBox(height: 60),
                               Text(
                                 "Glad you are practicing BeGreen!",
-                                style: AppFonts.largeMediumText,
+                                style: AppFonts.normalRegularText,
                               ),
                               const SizedBox(height: 5),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 60),
-                                child: Container(
-                                  color: AppColor.fontColorPrimary,
-                                  width: double.infinity,
-                                  height: 0.8,
-                                ),
+                              const Padding(
+                                padding: AppStyles.edgeInsetsLR,
+                                child: DividerLine(),
                               ),
                               const SizedBox(height: 10),
                               Padding(

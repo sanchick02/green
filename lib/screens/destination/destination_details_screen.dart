@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/page_navigator.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/screens/itinerary/swipe_itinerary_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/flight_card.dart';
 import 'package:green/widgets/price_row.dart';
@@ -316,6 +318,35 @@ class DestinationDetailsScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "View Itineraries:",
+                                          style: AppFonts.normalRegularText,
+                                        ),
+                                        Spacer(),
+                                        DefaultButton(
+                                          text: "Itineraries",
+                                          press: () {
+                                            navigateNextPage(context,
+                                                SwipeItineraryScreen());
+                                          },
+                                          backgroundColor:
+                                              AppColor.btnColorPrimary,
+                                          height: 35,
+                                          fontStyle:
+                                              AppFonts.smallLightTextWhite,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.3,
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
                                     Text(
                                       "What's Included",
                                       style: AppFonts.smallRegularText,

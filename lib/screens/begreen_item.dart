@@ -7,16 +7,16 @@ import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/model/bereal_model.dart';
 
-class BeGreemItem extends StatefulWidget {
+class BeGreenItem extends StatefulWidget {
   final BeReal beRealPost;
 
-  const BeGreemItem({Key? key, required this.beRealPost}) : super(key: key);
+  const BeGreenItem({Key? key, required this.beRealPost}) : super(key: key);
 
   @override
-  State<BeGreemItem> createState() => _ForumItemState();
+  State<BeGreenItem> createState() => _ForumItemState();
 }
 
-class _ForumItemState extends State<BeGreemItem> {
+class _ForumItemState extends State<BeGreenItem> {
   bool isLiked = false;
   int likesCount = 0;
 
@@ -49,7 +49,7 @@ class _ForumItemState extends State<BeGreemItem> {
     }
 
     return Container(
-      width: MediaQuery.of(context).size.width * 0.5,
+      width: MediaQuery.of(context).size.width - 30,
       margin: const EdgeInsets.symmetric(
         horizontal: 10,
       ),
@@ -112,23 +112,11 @@ class _ForumItemState extends State<BeGreemItem> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.beRealPost.greenRewards,
-                        style: AppFonts.smallLightText,
-                        softWrap: true,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8), // Increased spacing
+
                 // Display the image if there is one
                 if (imageUrl.isNotEmpty)
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(5),
                     child: Image.network(
                       imageUrl,
                       width:
@@ -151,16 +139,26 @@ class _ForumItemState extends State<BeGreemItem> {
                           });
                         },
                         icon: Image.asset(
-                          isLiked
-                              ? "lib/assets/images/logo.png"
-                              : "lib/assets/images/logo.png",
+                          "lib/assets/images/greenpts.png",
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
+                    //     Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Expanded(
+                    //       child: Text(
+                    //         widget.beRealPost.greenRewards,
+                    //         style: AppFonts.smallLightText,
+                    //         softWrap: true,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     Text(
                       // '${widget.forumPost.likes}',
-                      '$likesCount',
+                      widget.beRealPost.greenRewards,
                       style: AppFonts.smallLightText, // Adjusted font size
                     ),
                   ],
