@@ -10,32 +10,34 @@ import 'package:green/widgets/explore_widgets/info_button.dart';
 import 'package:provider/provider.dart';
 
 class ExploreDestinationsScreen extends StatefulWidget {
-
   ExploreDestinationsScreen({super.key});
 
   @override
-  State<ExploreDestinationsScreen> createState() => _ExploreDestinationsScreenState();
+  State<ExploreDestinationsScreen> createState() =>
+      _ExploreDestinationsScreenState();
 }
 
 class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
-  final List<String> imageList = ['lib/assets/images/langkawi.png', 
-  'lib/assets/images/penang.png', 
-  'lib/assets/images/genting.png', 
-  'lib/assets/images/batu_caves.png'];
+  final List<String> imageList = [
+    'lib/assets/images/langkawi.png',
+    'lib/assets/images/penang.png',
+    'lib/assets/images/genting.png',
+    'lib/assets/images/batu_caves.png'
+  ];
 
   String dropdownValue = 'All';
 
   @override
   Widget build(BuildContext context) {
-
-    DestinationProvider destinationProvider = Provider.of<DestinationProvider>(context);
+    DestinationProvider destinationProvider =
+        Provider.of<DestinationProvider>(context);
 
     destinationProvider.fetchDestinationData();
-    
+
     //Access the destinationList from the DestinationProvider
     List<Destination> destinationList = destinationProvider.destinationList
-    .where((destination) => destination.region == "West")
-    .toList();
+        .where((destination) => destination.region == "West")
+        .toList();
 
     List<String> destinationNames = [];
 
@@ -46,7 +48,9 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
     List<Destination> filteredList = destinationList;
 
     if (dropdownValue != "All") {
-      filteredList = destinationList.where((destination) => destination.destinationName == dropdownValue).toList();
+      filteredList = destinationList
+          .where((destination) => destination.destinationName == dropdownValue)
+          .toList();
     }
 
     return Scaffold(
@@ -82,11 +86,13 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
                             dropdownValue = value!;
                           });
                         },
-                        dropdownMenuEntries: ["All", ...destinationNames].map<DropdownMenuEntry<String>>((String value) {
-                          return DropdownMenuEntry<String>(value: value, label: value);
+                        dropdownMenuEntries: ["All", ...destinationNames]
+                            .map<DropdownMenuEntry<String>>((String value) {
+                          return DropdownMenuEntry<String>(
+                              value: value, label: value);
                         }).toList(),
                       ),
-                    ),// Search Bar
+                    ), // Search Bar
                     Text(
                       'Popular Destinations in West Malaysia',
                       style: AppFonts.normalRegularText,
@@ -116,7 +122,8 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         filteredList[index].destinationName,
@@ -126,20 +133,24 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
                                       Container(
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
                                           color: Color(0xffFFEEC4),
                                         ),
                                         width: 100,
                                         //height: 20,
                                         child: Text(
-                                          filteredList[index].locationTag ?? "No tag available",
+                                          filteredList[index].locationTag ??
+                                              "No tag available",
                                           style: AppFonts.extraSmallLightText,
                                         ),
                                       ),
                                       Spacer(),
                                       Container(
                                         child: Text(
-                                          filteredList[index].destinationDescription ?? "Not available",
+                                          filteredList[index]
+                                                  .destinationDescription ??
+                                              "Not available",
                                           style: AppFonts.extraSmallLightText,
                                         ),
                                       ),
@@ -149,9 +160,15 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => ExploreDetailScreen(
-                                                destinationName: destinationList[index].destinationName,
-                                                locationTag: destinationList[index].locationTag ?? "Unknown",
+                                              builder: (context) =>
+                                                  ExploreDetailScreen(
+                                                destinationName:
+                                                    destinationList[index]
+                                                        .destinationName,
+                                                locationTag:
+                                                    destinationList[index]
+                                                            .locationTag ??
+                                                        "Unknown",
                                               ),
                                             ),
                                           );
@@ -169,7 +186,6 @@ class _ExploreDestinationsScreenState extends State<ExploreDestinationsScreen> {
                     }),
                   ),
                 ),
-
               )
             ],
           ),
