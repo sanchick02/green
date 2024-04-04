@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
+import 'package:green/model/acommodation_model.dart';
 import 'package:green/model/destination_model.dart';
-import 'package:green/page_navigator.dart';
+import 'package:green/model/flight_detail_model.dart';
+import 'package:green/model/tour_detail_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
-import 'package:green/screens/itinerary/swipe_itinerary_screen.dart';
 import 'package:green/widgets/button.dart';
 import 'package:green/widgets/flight_card.dart';
 import 'package:green/widgets/price_row.dart';
@@ -19,6 +21,8 @@ class DestinationDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final price = detail.price;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -67,7 +71,9 @@ class DestinationDetailsScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      const PriceRow(),
+                      PriceRow(
+                        price: price,
+                      ),
                       const SizedBox(height: 30),
                     ],
                   ),
@@ -318,35 +324,6 @@ class DestinationDetailsScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "View Itineraries:",
-                                          style: AppFonts.normalRegularText,
-                                        ),
-                                        Spacer(),
-                                        DefaultButton(
-                                          text: "Itineraries",
-                                          press: () {
-                                            navigateNextPage(context,
-                                                SwipeItineraryScreen());
-                                          },
-                                          backgroundColor:
-                                              AppColor.btnColorPrimary,
-                                          height: 35,
-                                          fontStyle:
-                                              AppFonts.smallLightTextWhite,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.3,
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
                                     Text(
                                       "What's Included",
                                       style: AppFonts.smallRegularText,
@@ -493,7 +470,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const FlightCard(),
+                                        //const FlightCard(),
                                         const SizedBox(
                                           height: 20,
                                         ),

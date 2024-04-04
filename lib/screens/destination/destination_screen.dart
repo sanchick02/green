@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
+import 'package:green/model/acommodation_model.dart';
 import 'package:green/model/destination_model.dart';
+import 'package:green/model/flight_detail_model.dart';
+import 'package:green/model/tour_detail_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
+import 'package:green/providers/accommodation_provider.dart';
+import 'package:green/providers/activity_provider.dart';
+import 'package:green/providers/flight_detail_provider.dart';
+import 'package:green/providers/tour_provider.dart';
 import 'package:green/screens/destination/destination_details_screen.dart';
 import 'package:green/widgets/accommodation_card.dart';
 import 'package:green/widgets/button.dart';
@@ -13,6 +21,7 @@ import 'package:green/widgets/flight_card.dart';
 import 'package:green/widgets/numberofpax_dropdown.dart';
 import 'package:green/widgets/package_card.dart';
 import 'package:green/widgets/recommendation_card.dart';
+import 'package:provider/provider.dart';
 
 class DestinationScreen extends StatefulWidget {
   DestinationScreen({super.key, required this.destination});
@@ -33,15 +42,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
     5,
   ];
 
-  int? selectedKidValue;
-  int? selectedAdultValue;
-  int? selectedSeniorValue;
-  int? selectedStartDayValue;
-  String? selectedStartMonthValue;
-  int? selectedStartYearValue;
-  int? selectedEndDayValue;
-  String? selectedEndMonthValue;
-  int? selectedEndYearValue;
+  int? selectedValue;
   bool isButtonClicked = false;
   bool isActivityButtonClicked = true;
   bool isAccommodationButtonClicked = false;
@@ -60,6 +61,26 @@ class _DestinationScreenState extends State<DestinationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<ActivityDetail> activityList = activityDetailList
+        .where((activity) =>
+            activity.destinationName == widget.destination.destinationName)
+        .toList();
+
+    List<AccommodationDetail> accommodationList = accommodationDetailList
+        .where((accommodotion) =>
+            accommodotion.destinationName == widget.destination.destinationName)
+        .toList();
+
+    List<TourDetail> tourList = tourDetailList
+        .where((tour) =>
+            tour.destinationName == widget.destination.destinationName)
+        .toList();
+
+    List<FlightDetail> flightList = flightDetailList
+        .where((flight) =>
+            flight.destinationName == widget.destination.destinationName)
+        .toList();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -118,7 +139,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 AppBar(
                   backgroundColor: Colors.transparent,
                   title: Text(
-                    "Destination",
+                    "Destination Details",
                     style: AppFonts.normalRegularText,
                   ),
                   leading: IconButton(
@@ -307,7 +328,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   child: Row(
                                     children: [
                                       ...List.generate(
-                                        activityDetailList.length,
+                                        activityList.length,
                                         (index) => GestureDetector(
                                           onTap: () {
                                             _navigateToDestinationDetails(
@@ -315,6 +336,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
+                                            title: activityList[index].title,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -347,7 +374,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   child: Row(
                                     children: [
                                       ...List.generate(
-                                        activityDetailList.length,
+                                        activityList.length,
                                         (index) => GestureDetector(
                                           onTap: () {
                                             _navigateToDestinationDetails(
@@ -355,6 +382,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
+                                            title: activityList[index].title,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -387,7 +420,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   child: Row(
                                     children: [
                                       ...List.generate(
-                                        activityDetailList.length,
+                                        activityList.length,
                                         (index) => GestureDetector(
                                           onTap: () {
                                             _navigateToDestinationDetails(
@@ -395,6 +428,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
+                                            title: activityList[index].title,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -427,7 +466,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   child: Row(
                                     children: [
                                       ...List.generate(
-                                        activityDetailList.length,
+                                        activityList.length,
                                         (index) => GestureDetector(
                                           onTap: () {
                                             _navigateToDestinationDetails(
@@ -435,6 +474,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
+                                            title: activityList[index].title,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -457,17 +502,27 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           : isAccommodationButtonClicked
                               ? Column(
                                   children: List.generate(
-                                    accommodationDetailList.length,
+                                    accommodationList.length,
                                     (index) => Column(
                                       children: [
                                         GestureDetector(
                                           onTap: () {
                                             _navigateToDestinationDetails(
                                               context,
-                                              accommodationDetailList[index],
+                                              accommodationList[index],
                                             );
                                           },
-                                          child: AccommodationCard(),
+                                          child: AccommodationCard(
+                                            title:
+                                                accommodationList[index].title,
+                                            destinationName:
+                                                accommodationList[index]
+                                                    .destinationName,
+                                            price:
+                                                accommodationList[index].price,
+                                            image: accommodationList[index]
+                                                .backgroundImage,
+                                          ),
                                         ),
                                         SizedBox(height: 15),
                                       ],
@@ -479,7 +534,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       padding: AppStyles.edgeInsetsLR,
                                       child: Column(
                                         children: List.generate(
-                                          tourDetailList.length,
+                                          tourList.length,
                                           (index) => Column(
                                             children: [
                                               GestureDetector(
@@ -489,7 +544,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                     tourDetailList[index],
                                                   );
                                                 },
-                                                child: PackageCard(),
+                                                child: PackageCard(
+                                                  image: tourList[index]
+                                                      .backgroundImage,
+                                                  description: tourList[index]
+                                                      .description,
+                                                  price: tourList[index].price,
+                                                  title: tourList[index].title,
+                                                ),
                                               ),
                                               SizedBox(height: 15),
                                             ],
@@ -521,7 +583,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                           padding: AppStyles.edgeInsetsLR,
                                           child: Column(
                                             children: List.generate(
-                                              flightDetailList.length,
+                                              flightList.length,
                                               (index) => Column(
                                                 children: [
                                                   GestureDetector(
@@ -531,7 +593,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                         flightDetailList[index],
                                                       );
                                                     },
-                                                    child: FlightCard(),
+                                                    child: FlightCard(
+                                                      flightDetail:
+                                                          flightList[index],
+                                                    ),
                                                   ),
                                                   SizedBox(height: 15),
                                                 ],
@@ -564,44 +629,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           ],
                         ),
                       ),
-                      CustomDatePicker(
-                        selectedStartDateValue: selectedStartDayValue,
-                        selectedStartMonthValue: selectedStartMonthValue,
-                        selectedStartYearValue: selectedStartYearValue,
-                        selectedEndDateValue: selectedEndDayValue,
-                        selectedEndMonthValue: selectedEndMonthValue,
-                        selectedEndYearValue: selectedEndYearValue,
-                        onStartDateChanged: (int? value) {
-                          setState(() {
-                            selectedStartDayValue = value;
-                          });
-                        },
-                        onStartMonthChanged: (String? value) {
-                          setState(() {
-                            selectedStartMonthValue = value;
-                          });
-                        },
-                        onStartYearChanged: (int? value) {
-                          setState(() {
-                            selectedStartYearValue = value;
-                          });
-                        },
-                        onEndDateChanged: (int? value) {
-                          setState(() {
-                            selectedEndDayValue = value;
-                          });
-                        },
-                        onEndMonthChanged: (String? value) {
-                          setState(() {
-                            selectedEndMonthValue = value;
-                          });
-                        },
-                        onEndYearChanged: (int? value) {
-                          setState(() {
-                            selectedEndYearValue = value;
-                          });
-                        },
-                      ),
+                      const CustomDatePicker(),
                       const SizedBox(
                         height: 30,
                       ),
@@ -616,22 +644,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                             ),
                             NumberOfPaxDropdown(
                               items: items,
-                              selectedKidValue: selectedKidValue,
-                              selectedAdultValue: selectedAdultValue,
-                              selectedSeniorValue: selectedSeniorValue,
-                              onKidChanged: (int? value) {
+                              selectedValue: selectedValue,
+                              onChanged: (int? value) {
                                 setState(() {
-                                  selectedKidValue = value;
-                                });
-                              },
-                              onAdultChanged: (int? value) {
-                                setState(() {
-                                  selectedAdultValue = value;
-                                });
-                              },
-                              onSeniorChanged: (int? value) {
-                                setState(() {
-                                  selectedSeniorValue = value;
+                                  selectedValue = value;
                                 });
                               },
                             ),
