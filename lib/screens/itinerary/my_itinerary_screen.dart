@@ -23,6 +23,13 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
   List<bool> buttonStates =
       List.filled(8, false); // List to track button states
 
+  int? selectedStartDayValue;
+  String? selectedStartMonthValue;
+  int? selectedStartYearValue;
+  int? selectedEndDayValue;
+  String? selectedEndMonthValue;
+  int? selectedEndYearValue;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -76,7 +83,44 @@ class _MyItineraryScreenState extends State<MyItineraryScreen> {
                   ],
                 ),
               ),
-              const CustomDatePicker(),
+              CustomDatePicker(
+                selectedStartDateValue: selectedStartDayValue,
+                selectedStartMonthValue: selectedStartMonthValue,
+                selectedStartYearValue: selectedStartYearValue,
+                selectedEndDateValue: selectedEndDayValue,
+                selectedEndMonthValue: selectedEndMonthValue,
+                selectedEndYearValue: selectedEndYearValue,
+                onStartDateChanged: (int? value) {
+                  setState(() {
+                    selectedStartDayValue = value;
+                  });
+                },
+                onStartMonthChanged: (String? value) {
+                  setState(() {
+                    selectedStartMonthValue = value;
+                  });
+                },
+                onStartYearChanged: (int? value) {
+                  setState(() {
+                    selectedStartYearValue = value;
+                  });
+                },
+                onEndDateChanged: (int? value) {
+                  setState(() {
+                    selectedEndDayValue = value;
+                  });
+                },
+                onEndMonthChanged: (String? value) {
+                  setState(() {
+                    selectedEndMonthValue = value;
+                  });
+                },
+                onEndYearChanged: (int? value) {
+                  setState(() {
+                    selectedEndYearValue = value;
+                  });
+                },
+              ),
               const SizedBox(
                 height: 30,
               ),
