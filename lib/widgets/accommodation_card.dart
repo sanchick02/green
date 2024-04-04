@@ -7,9 +7,17 @@ import 'package:green/presets/styles.dart';
 
 class AccommodationCard extends StatelessWidget {
   const AccommodationCard({
+    required this.title,
+    required this.destinationName,
+    required this.price,
+    required this.image,
     super.key,
   });
 
+  final String title;
+  final String destinationName;
+  final double price;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +37,7 @@ class AccommodationCard extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               children: [
                 Image.asset(
-                  "lib/assets/images/hotel1.png",
+                  image,
                   width: MediaQuery.of(context).size.width * 0.25,
                   height: MediaQuery.of(context).size.width * 0.25,
                 ),
@@ -65,11 +73,11 @@ class AccommodationCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Sutera Avenue",
+                  title,
                   style: AppFonts.smallRegularText,
                 ),
                 Text(
-                  "Sutera Avenue Block B, Lobby 3, 2nd Floor, Unit 32, 88100 Kota Kinabalu, Malaysia",
+                  (destinationName + ", Malaysia"),
                   style: AppFonts.smallestLightText,
                 ),
                 SizedBox(
@@ -91,7 +99,7 @@ class AccommodationCard extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "MYR 233.99",
+                  "MYR " + price.toString(),
                   style: AppFonts.smallLightText,
                 ),
               ],

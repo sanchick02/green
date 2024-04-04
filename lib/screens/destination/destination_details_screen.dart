@@ -21,6 +21,9 @@ class DestinationDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final price = detail.price;
+    
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -69,7 +72,9 @@ class DestinationDetailsScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      const PriceRow(),
+                      PriceRow(
+                        price: price,
+                      ),
                       const SizedBox(height: 30),
                     ],
                   ),
@@ -466,7 +471,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const FlightCard(),
+                                        //const FlightCard(),
                                         const SizedBox(
                                           height: 20,
                                         ),

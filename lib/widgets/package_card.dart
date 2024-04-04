@@ -4,16 +4,30 @@ import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
 
 class PackageCard extends StatelessWidget {
-  const PackageCard({Key? key}) : super(key: key);
+  const PackageCard({
+    required this.title,
+    required this.description,
+    required this.price,
+    required this.image,
+    super.key,
+  });
+
+  final String title;
+  final double price;
+  final String image;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
+
+    String shortDescription = description.substring(0, 50);
+
     return ClipRRect(
       borderRadius: AppStyles.borderRadiusAll,
       child: Stack(
         children: [
           Image.asset(
-            "lib/assets/images/package1.jpg",
+            image,
             fit: BoxFit.cover,
             width: double.infinity,
             height: 180,
@@ -32,16 +46,15 @@ class PackageCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "3D2N Snorkeling Package",
+                    title,
                     style: AppFonts.normalRegularTextWhite,
                   ),
                   Text(
-                    "Price From: MYR 480",
+                    "Price From: MYR " + price.toString(),
                     style: AppFonts.extraSmallLightTextWhite,
                   ),
                   Text(
-                    """• Comfortable Mabul Backpackers Longhouse,
-• Full board (buffet-style: breakfast, lunch, dinner)""",
+                    shortDescription,
                     style: AppFonts.extraSmallLightTextWhite,
                   ),
                 ],

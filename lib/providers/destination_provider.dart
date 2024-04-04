@@ -23,7 +23,7 @@ Future<void> fetchDestinationData() async {
 
   await FirebaseFirestore.instance.collection("destinations").get().then(
   (querySnapshot) {
-    if (querySnapshot.docs.isNotEmpty) {
+    if (querySnapshot.docs.isNotEmpty && destinationList.isEmpty) {
       print("Successfully completed");
       for (var docSnapshot in querySnapshot.docs) {
         Destination destination = Destination(
@@ -44,7 +44,7 @@ Future<void> fetchDestinationData() async {
   onError: (e) => print("Error completing: $e"),
 );
 // Notify listeners about the change
-//notifyListeners();
+notifyListeners();
 
     } catch (error) {
       print("Error fetching data: $error");

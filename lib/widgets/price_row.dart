@@ -6,14 +6,20 @@ import 'package:green/presets/styles.dart';
 class PriceRow extends StatelessWidget {
   const PriceRow({
     super.key,
+    required this.price,
   });
+
+  final double price;
 
   @override
   Widget build(BuildContext context) {
+
+    double priceAfterReduction = price*0.95;
+
     return Row(
       children: [
         Text(
-          "Price From: MYR 15",
+          "Price From: MYR " + price.toStringAsFixed(2),
           style: AppFonts.smallLightText,
         ),
         const SizedBox(
@@ -44,7 +50,7 @@ class PriceRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                "MYR 14.25",
+                "MYR " + priceAfterReduction.toStringAsFixed(2),
                 style: AppFonts.smallRegularText,
               ),
               Row(

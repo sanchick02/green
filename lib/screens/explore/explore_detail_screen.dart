@@ -3,6 +3,7 @@ import 'package:green/data/destinations.dart';
 import 'package:green/model/destination_model.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/providers/destination_provider.dart';
+import 'package:green/screens/destination/destination_screen.dart';
 import 'package:green/widgets/explore_widgets/explore_app_bar.dart';
 import 'package:green/widgets/explore_widgets/info_button.dart';
 import 'package:provider/provider.dart';
@@ -16,19 +17,6 @@ class ExploreDetailScreen extends StatelessWidget {
     required this.destinationName,
     required this.locationTag,
   });
-
-  // List<Destination> get destinationInfo {
-  //   return destinationList
-  //       .where((destination) => destination.destinationName == destinationName)
-  //       .toList();
-  // }
-
-  // List<Destination> get eastMalaysiaDestinations {
-  //   return destinationList
-  //       .where((destination) => destination.locationTag == locationTag 
-  //         && destination.region == "East")
-  //       .toList();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -183,12 +171,19 @@ class DestinationsList extends StatelessWidget {
                             Row(
                               children: [
                                 InfoButton(onPressed: () {
-                                  
+                                  Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => DestinationScreen(
+                                                destination: eastMalaysiaDestinations[index],
+                                              ),
+                                            ),
+                                          );
                                 }, 
                                 text: 'More Info'),
                                 SizedBox(width: 7,),
                                 InfoButton(onPressed: () {
-
+                                  
                                 }, 
                                 text: 'Compare'),
                               ],
