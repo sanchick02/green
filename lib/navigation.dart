@@ -11,7 +11,6 @@ import 'package:green/screens/chatbot_screen.dart';
 import 'package:green/screens/home_screen.dart';
 import 'package:green/screens/itinerary/my_itinerary_screen.dart';
 import 'package:green/screens/profile_screen.dart';
-import 'package:green/screens/testscreen.dart';
 // import 'package:green/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +41,7 @@ class _NavigationState extends State<Navigation> {
         _isLoading = false;
 
         pages = [
-          HomeScreen(),
+          const HomeScreen(),
           const MyItineraryScreen(),
           const ChatbotScreen(),
           const BeGreenCommunityScreen(),
