@@ -1,23 +1,28 @@
-class Accommodation {
-  final String documentID;
-  final String name;
-  final String location;
-  final String type;
-  final String priceRange;
-  final List<String> images;
-  final List<String> sustainabilityCertifications;
-  final List<String> amenities;
-  final List<String> availability;
+// Define AccommodationDetail class
+import 'package:green/model/destination_model.dart';
 
-  Accommodation({
-    required this.documentID,
-    required this.name,
+class AccommodationDetail implements DestinationDetailBase {
+  @override
+  final String destinationName;
+  @override
+  final String title;
+  @override
+  final String backgroundImage;
+  final String destination;
+  @override
+  final String location;
+  final double price;
+  final String description;
+  final List<String> photos;
+
+  AccommodationDetail({
+    required this.destinationName,
+    required this.title,
+    required this.backgroundImage,
+    required this.destination,
     required this.location,
-    required this.type,
-    required this.priceRange,
-    required this.images,
-    required this.sustainabilityCertifications,
-    required this.amenities,
-    required this.availability,
+    required this.price,
+    required this.description,
+    required this.photos,
   });
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/screens/checkout/receipt_screen.dart';
+import 'package:green/widgets/button.dart';
 import 'package:green/widgets/checkout_widgets/payment_options_toggle.dart';
 import 'package:green/widgets/checkout_widgets/appbar_checkout.dart';
 import 'package:green/widgets/form_field.dart';
@@ -131,6 +133,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               ),
                             ],
                           ),
+                          Padding(
+                              padding: const EdgeInsets.only(top: 30.0, bottom: 20),
+                              child: DefaultButton(
+                                text: 'PAY NOW', 
+                                press: () {
+                                   Navigator.push(
+                                   context,
+                                   MaterialPageRoute(
+                                     builder: (context) => 
+                                     ReceiptScreen()),
+                                   );
+                                }, 
+                                backgroundColor: AppColor.btnColorPrimary, 
+                                height: 45, 
+                                fontStyle: AppFonts.normalRegularTextWhite, 
+                                width: double.infinity, 
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8)
+                                ),
+                            ),
                         ],
                       ),
                     ),

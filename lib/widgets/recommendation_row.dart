@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green/data/activities_data.dart';
 import 'package:green/data/destinations.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/widgets/recommendation_card.dart';

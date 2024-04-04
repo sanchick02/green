@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:green/presets/shadow.dart';
 
 class DefaultButton extends StatefulWidget {
   const DefaultButton({
@@ -36,9 +37,9 @@ class _DefaultButtonState extends State<DefaultButton> {
           Container(
             decoration: BoxDecoration(
               color: widget.backgroundColor,
-              // boxShadow: [
-              //   AppShadow.innerShadow2,
-              // ],
+              boxShadow: [
+                AppShadow.innerShadow2,
+              ],
               borderRadius: BorderRadius.circular(5),
             ),
           ),

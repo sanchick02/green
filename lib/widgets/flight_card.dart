@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:green/model/flight_detail_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
 import 'package:green/presets/styles.dart';
@@ -8,7 +9,11 @@ import 'package:green/presets/styles.dart';
 class FlightCard extends StatelessWidget {
   const FlightCard({
     super.key,
+    required this.flightDetail,
   });
+
+  final FlightDetail flightDetail;
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +46,7 @@ class FlightCard extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.75,
                 child: Text(
-                  "This flight emits 9% less CO2 than a typical flight on this route.",
+                  flightDetail.co2Description,
                   style: AppFonts.extraSmallLightText,
                 ),
               ),
@@ -89,11 +94,11 @@ class FlightCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "6:05AM - 8:45AM",
+                          flightDetail.flightDepartureTime,
                           style: AppFonts.smallLightText,
                         ),
                         Text(
-                          "KUL - BKI, AirAsia ",
+                          flightDetail.flightDestinationAirline,
                           style: AppFonts.extraSmallLightText,
                         ),
                       ],
@@ -104,11 +109,11 @@ class FlightCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "Direct",
+                        flightDetail.flightType,
                         style: AppFonts.smallLightText,
                       ),
                       Text(
-                        "2h40m",
+                        flightDetail.flightDuration,
                         style: AppFonts.extraSmallLightText,
                       ),
                     ],
@@ -135,11 +140,11 @@ class FlightCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "6:05AM - 8:45AM",
+                          flightDetail.flightReturnTime,
                           style: AppFonts.smallLightText,
                         ),
                         Text(
-                          "KUL - BKI, AirAsia ",
+                          flightDetail.flightDestinationAirline,
                           style: AppFonts.extraSmallLightText,
                         ),
                       ],
@@ -150,11 +155,11 @@ class FlightCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "Direct",
+                        flightDetail.flightType,
                         style: AppFonts.smallLightText,
                       ),
                       Text(
-                        "2h40m",
+                        flightDetail.flightDuration,
                         style: AppFonts.extraSmallLightText,
                       ),
                     ],
@@ -168,7 +173,7 @@ class FlightCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "From MYR 213",
+                    "From MYR " + flightDetail.price.toString(),
                     style: AppFonts.smallLightText,
                   ),
                 ],

@@ -14,7 +14,7 @@ class DestinationCard extends StatelessWidget {
     required this.margin,
   }) : super(key: key);
 
-  final DestinationDetailBase destination;
+  final Destination destination;
   final EdgeInsets margin;
 
   @override
@@ -30,7 +30,7 @@ class DestinationCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => DestinationScreen(
-              destination: destinationList[0],
+              destination: destination,
             ),
           ),
         );

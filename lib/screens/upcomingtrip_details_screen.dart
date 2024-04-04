@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:green/data/activities_data.dart';
+import 'package:green/data/destinations.dart';
+import 'package:green/model/acommodation_model.dart';
+import 'package:green/model/destination_model.dart';
+import 'package:green/model/tour_detail_model.dart';
 import 'package:green/model/upcoming_trip_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
@@ -14,6 +19,19 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    List<ActivityDetail> activityList = activityDetailList.
+    where((activity) => activity.destinationName == upcomingTrip.destinationName)
+    .toList();
+    List<AccommodationDetail> accommodationList = accommodationDetailList
+    .where((accommodotion) => accommodotion.destinationName == upcomingTrip.destinationName)
+    .toList();
+    List<TourDetail> tourList = tourDetailList
+    .where((tour) => tour.destinationName == upcomingTrip.destinationName)
+    .toList();
+
+    final double totAmountPaid = accommodationList[0].price + activityList[0].price + activityList[0].price;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -42,11 +60,11 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                     children: [
                       const Spacer(),
                       Text(
-                        "Mount Kinabalu",
+                        upcomingTrip.destinationName,
                         style: AppFonts.heading3Height,
                       ),
                       Text(
-                        "MAY 30, 2024 - JUNE 3, 2024",
+                        upcomingTrip.startDate + " - " + upcomingTrip.endDate,
                         style: AppFonts.smallLightText,
                       ),
                       const SizedBox(height: 10),
@@ -60,7 +78,7 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            "2 Adults, 1 Kid",
+                            upcomingTrip.numOfAdult.toString() + " Adults, " + upcomingTrip.numOfKid.toString() + " Kid",
                             style: AppFonts.extraSmallLightText,
                           ),
                         ],
@@ -69,7 +87,7 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Total Amount Paid: MYR 590",
+                            "Total Amount Paid: MYR " + totAmountPaid.toString(),
                             style: AppFonts.smallLightText,
                           ),
                           Spacer(),
@@ -117,6 +135,9 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   RecommendationCard(
+                      title: accommodationList[0].title,
+                      price: accommodationList[0].price.toString(),
+                      image: accommodationList[0].backgroundImage,
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
@@ -127,11 +148,17 @@ class UpcomingTripDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   RecommendationCard(
+                      title: activityList[0].title,
+                      price: activityList[0].price.toString(),
+                      image: activityList[0].backgroundImage,
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
                   const SizedBox(height: 10),
                   RecommendationCard(
+                      title: activityList[1].title,
+                      price: activityList[1].price.toString(),
+                      image: activityList[1].backgroundImage,
                     margin: EdgeInsets.zero,
                     showButton: false,
                   ),
