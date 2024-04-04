@@ -2,12 +2,20 @@ import 'dart:io';
 
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:green/model/bereal_model.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
-import 'package:green/providers/destination_provider.dart';
-import 'package:green/screens/explore/explore_destinations_screen.dart';
+import 'package:green/provider/begreen_post_provider.dart';
+import 'package:green/provider/user_provider.dart';
+import 'package:green/screens/begreen.dart';
+import 'package:green/screens/begreen_community_list.dart';
+import 'package:green/screens/begreen_item.dart';
+import 'package:green/screens/begreen_screen.dart';
+import 'package:green/screens/chatbot_screen.dart';
 import 'package:green/screens/home_screen.dart';
+import 'package:green/screens/itinerary/my_itinerary_screen.dart';
+import 'package:green/screens/profile_screen.dart';
 // import 'package:green/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -24,23 +32,73 @@ class _NavigationState extends State<Navigation> {
     return _NavigationState.navigatorKey.currentWidget as BottomNavigationBar;
   }
 
+  final List<BeReal> _registeredExpenses = [
+    BeReal(
+        uid: '',
+        pid: '',
+        userImage: '',
+        userName: '',
+        time: '',
+        greenRewards: '',
+        postImage: '',
+        likes: 0),
+  ];
+
+  void _addExpense(BeReal beRealPost) {
+    setState(() {
+      _registeredExpenses.add(beRealPost);
+      _registeredExpenses.sort((a, b) => b.time.compareTo(a.time));
+    });
+  }
+
+  void _removeExpense(BeReal beRealPost) {
+    final expenseIndex = _registeredExpenses.indexOf(beRealPost);
+    _registeredExpenses.remove(beRealPost);
+
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(seconds: 3),
+      content: const Text('Forum Deleted'),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {
+          setState(() {
+            _registeredExpenses.insert(expenseIndex, beRealPost);
+          });
+        },
+      ),
+    ));
+  }
+
   int currentIndex = 0;
   bool _isLoading = true;
 
-  // File? _selectedImage;
+  File? _selectedImage;
 
   List<Widget> pages = [];
 
   @override
   void initState() {
     Provider.of<DestinationProvider>(context, listen: false)
-        .fetchDestinationData()
+        .fetchDestinationData();
+    Provider.of<BeGreenProvider>(context, listen: false)
+        .fetchUserData()
         .then((_) {
+      setState(() {
+        _registeredExpenses;
+        _registeredExpenses.sort((a, b) => b.time.compareTo(a.time));
+      });
+    });
+    Provider.of<UserProvider>(context, listen: false).fetchUserData().then((_) {
       setState(() {
         _isLoading = false;
 
         pages = [
-          ExploreDestinationsScreen(),
+          const HomeScreen(),
+          const MyItineraryScreen(),
+          const ChatbotScreen(),
+          const BeGreenScreen(),
+          const ProfileScreen(),
         ];
       });
     });
@@ -86,35 +144,35 @@ class _NavigationState extends State<Navigation> {
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/home.png",
-                    width: 40,
+                    width: 25,
                   ),
                   label: 'Home',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/itinerary.png",
-                    width: 40,
+                    width: 28,
                   ),
                   label: 'Itinerary',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/chatbot.png",
-                    width: 40,
+                    width: 28,
                   ),
-                  label: 'Chatbot',
+                  label: 'Bazoot',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/nowaste.png",
-                    width: 40,
+                    width: 30,
                   ),
-                  label: 'NoWaste',
+                  label: 'BeGreen',
                 ),
                 NavigationDestination(
                   icon: Image.asset(
                     "lib/assets/icons/profile.png",
-                    width: 40,
+                    width: 22,
                   ),
                   label: 'Profile',
                 ),
