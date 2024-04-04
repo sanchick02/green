@@ -204,15 +204,12 @@ class _BeGreenState extends State<BeGreen> {
                               const SizedBox(height: 30),
                             ],
                           ),
-                          ClipOval(
-                            child: SizedBox(
-                              child: Image.file(
-                                _capturedImage!,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
-                                width: MediaQuery.of(context).size.height * 0.3,
-                                fit: BoxFit.cover,
-                              ),
+                          SizedBox(
+                            child: Image.file(
+                              _capturedImage!,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              width: MediaQuery.of(context).size.height * 0.3,
+                              fit: BoxFit.cover,
                             ),
                           ),
                           Column(
@@ -302,25 +299,21 @@ class _BeGreenState extends State<BeGreen> {
                           ),
                           Stack(
                             children: [
-                              ClipOval(
-                                child: SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.3,
-                                  width:
-                                      MediaQuery.of(context).size.height * 0.3,
-                                  child: !cameraController!.value.isInitialized
-                                      ? Container()
-                                      : AspectRatio(
-                                          aspectRatio: cameraController!
-                                              .value.aspectRatio,
-                                          child:
-                                              CameraPreview(cameraController!),
-                                        ),
-                                ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.4,
+                                width: MediaQuery.of(context).size.height * 0.3,
+                                child: !cameraController!.value.isInitialized
+                                    ? Container()
+                                    : AspectRatio(
+                                        aspectRatio:
+                                            cameraController!.value.aspectRatio,
+                                        child: CameraPreview(cameraController!),
+                                      ),
                               ),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.3,
+                                    MediaQuery.of(context).size.height * 0.4,
                                 width: MediaQuery.of(context).size.height * 0.3,
                                 child: isLoading
                                     ? CircularProgressIndicator(
