@@ -61,21 +61,25 @@ class _DestinationScreenState extends State<DestinationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<ActivityDetail> activityList = activityDetailList.
-    where((activity) => activity.destinationName == widget.destination.destinationName)
-    .toList();
+    List<ActivityDetail> activityList = activityDetailList
+        .where((activity) =>
+            activity.destinationName == widget.destination.destinationName)
+        .toList();
 
     List<AccommodationDetail> accommodationList = accommodationDetailList
-    .where((accommodotion) => accommodotion.destinationName == widget.destination.destinationName)
-    .toList();
+        .where((accommodotion) =>
+            accommodotion.destinationName == widget.destination.destinationName)
+        .toList();
 
     List<TourDetail> tourList = tourDetailList
-    .where((tour) => tour.destinationName == widget.destination.destinationName)
-    .toList();
+        .where((tour) =>
+            tour.destinationName == widget.destination.destinationName)
+        .toList();
 
     List<FlightDetail> flightList = flightDetailList
-    .where((flight) => flight.destinationName == widget.destination.destinationName)
-    .toList();
+        .where((flight) =>
+            flight.destinationName == widget.destination.destinationName)
+        .toList();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -333,8 +337,11 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                           },
                                           child: RecommendationCard(
                                             title: activityList[index].title,
-                                            price: activityList[index].price.toString(),
-                                            image: activityList[index].backgroundImage,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -376,8 +383,11 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                           },
                                           child: RecommendationCard(
                                             title: activityList[index].title,
-                                            price: activityList[index].price.toString(),
-                                            image: activityList[index].backgroundImage,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -419,8 +429,11 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                           },
                                           child: RecommendationCard(
                                             title: activityList[index].title,
-                                            price: activityList[index].price.toString(),
-                                            image: activityList[index].backgroundImage,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -462,8 +475,11 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                           },
                                           child: RecommendationCard(
                                             title: activityList[index].title,
-                                            price: activityList[index].price.toString(),
-                                            image: activityList[index].backgroundImage,
+                                            price: activityList[index]
+                                                .price
+                                                .toString(),
+                                            image: activityList[index]
+                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -497,10 +513,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                             );
                                           },
                                           child: AccommodationCard(
-                                            title: accommodationList[index].title,
-                                            destinationName: accommodationList[index].destinationName,
-                                            price: accommodationList[index].price,
-                                            image: accommodationList[index].backgroundImage,
+                                            title:
+                                                accommodationList[index].title,
+                                            destinationName:
+                                                accommodationList[index]
+                                                    .destinationName,
+                                            price:
+                                                accommodationList[index].price,
+                                            image: accommodationList[index]
+                                                .backgroundImage,
                                           ),
                                         ),
                                         SizedBox(height: 15),
@@ -524,8 +545,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                   );
                                                 },
                                                 child: PackageCard(
-                                                  image: tourList[index].backgroundImage,
-                                                  description: tourList[index].description,
+                                                  image: tourList[index]
+                                                      .backgroundImage,
+                                                  description: tourList[index]
+                                                      .description,
                                                   price: tourList[index].price,
                                                   title: tourList[index].title,
                                                 ),
@@ -571,7 +594,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                       );
                                                     },
                                                     child: FlightCard(
-                                                      flightDetail: flightList[index],
+                                                      flightDetail:
+                                                          flightList[index],
                                                     ),
                                                   ),
                                                   SizedBox(height: 15),
