@@ -344,12 +344,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -390,12 +384,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -436,12 +424,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -482,12 +464,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==

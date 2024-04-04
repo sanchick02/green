@@ -3,36 +3,35 @@ import 'package:green/model/destination_model.dart';
 
 List<Activity> activitiesList = [
   Activity(
-    documentID: 'something',
-    name: 'Mulu Caves',
-    description: 'description', 
-    location: 'mulu caves', 
-    price: 30, 
-    type: 'Trekking',
-    sustainabilityImpact: '20 Green Points', 
-    availability: ['available'],
-    date: '6/4/2024',
-    ticketPrices: '6 & Below: No Charge Student (7 to 17):  MYR 5.00 Adult (18 - 59): MYR 10.00 Senior (60 & Above):  MYR 5.00',
-    image: 'lib/assets/images/mulu_caves.png'
-    ),
-
+      documentID: 'something',
+      name: 'Mulu Caves',
+      description: 'description',
+      location: 'mulu caves',
+      price: 30,
+      type: 'Trekking',
+      sustainabilityImpact: '20 Green Points',
+      availability: ['available'],
+      date: '6/4/2024',
+      ticketPrices:
+          '6 & Below: No Charge Student (7 to 17):  MYR 5.00 Adult (18 - 59): MYR 10.00 Senior (60 & Above):  MYR 5.00',
+      image: 'lib/assets/images/mulu_caves.png'),
   Activity(
-    documentID: 'something2', 
-    name: 'Niah Caves', 
-    description: 'description', 
-    location: 'niah caves', 
-    price: 16, 
-    type: 'Trekking', 
-    sustainabilityImpact: '20 Green Points', 
-    availability: ['available'], 
+    documentID: 'something2',
+    name: 'Niah Caves',
+    description: 'description',
+    location: 'niah caves',
+    price: 16,
+    type: 'Trekking',
+    sustainabilityImpact: '20 Green Points',
+    availability: ['available'],
     date: '7/4/2024',
-    ticketPrices: '6 & Below: No Charge Child (7 to 18):  MYR 5.00 Adult (19 - 55): MYR 15.00 Senior (56 & Above):  MYR 7.00',
+    ticketPrices:
+        '6 & Below: No Charge Child (7 to 18):  MYR 5.00 Adult (19 - 55): MYR 15.00 Senior (56 & Above):  MYR 7.00',
     image: 'lib/assets/images/niah_caves.png',
-    ), 
-  ];
+  ),
+];
 
-
-  List<ActivityDetail> activityDetailList = [
+List<ActivityDetail> activityDetailList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Kinabalu Park',
@@ -50,7 +49,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Climbing Mount Kinabalu',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/climbing_kinabalu1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/climbing_kinabalu1.png',
     location: 'Sabah',
     price: 202.5,
     description:
@@ -64,7 +64,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Kinabalu National Park Tour with Poring Hot Springs',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/kinabalu_national_park1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/kinabalu_national_park1.png',
     location: 'Sabah',
     price: 285,
     description:
@@ -78,7 +79,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Kota Kinabalu Half Day City Tour',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/half_day_tour1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/half_day_tour1.png',
     location: 'Sabah',
     price: 470,
     description:
@@ -106,7 +108,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'ATV Adventure at Mount Kinabalu',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/atv_adventure1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/atv_adventure1.png',
     location: 'Sabah',
     price: 200,
     description:
@@ -120,7 +123,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Mangrove Kayaking Experience',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/mangrove1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/mangrove1.png',
     location: 'Sabah',
     price: 389.50,
     description:
@@ -134,7 +138,8 @@ List<Activity> activitiesList = [
   ActivityDetail(
     destinationName: 'Mount Kinabalu',
     title: 'Sapi & Manukan Island Exploration',
-    backgroundImage: 'lib/assets/images/mount_kinabalu_activities/sapi_manukan1.png',
+    backgroundImage:
+        'lib/assets/images/mount_kinabalu_activities/sapi_manukan1.png',
     location: 'Sabah',
     price: 290,
     description:
@@ -165,7 +170,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/sarawak_river1.png',
     location: 'Sarawak',
     price: 70.0,
-    description: """Embark on a mesmerizing 1.5-hour Sarawak River Sunset Cruise Experience and immerse yourself in the beauty of Kuching's skyline. This scenic cruise offers a rich panoramic view of the city and its famous landmarks, with historical landmarks majestically lining the riverbanks. Cruise past numerous historical landmarks of Kuching while enjoying a breathtaking 360° panoramic view of the city skyline. Indulge in Sarawakian layered cakes (kuih lapis) and enjoy free-flowing orange cordial while listening to live commentary and cultural performances aboard the cruise. Witness the stunning sunset casting hues of orange and pink across the horizon, creating a memorable experience in the heart of Kuching.""",
+    description:
+        """Embark on a mesmerizing 1.5-hour Sarawak River Sunset Cruise Experience and immerse yourself in the beauty of Kuching's skyline. This scenic cruise offers a rich panoramic view of the city and its famous landmarks, with historical landmarks majestically lining the riverbanks. Cruise past numerous historical landmarks of Kuching while enjoying a breathtaking 360° panoramic view of the city skyline. Indulge in Sarawakian layered cakes (kuih lapis) and enjoy free-flowing orange cordial while listening to live commentary and cultural performances aboard the cruise. Witness the stunning sunset casting hues of orange and pink across the horizon, creating a memorable experience in the heart of Kuching.""",
     photos: [
       'lib/assets/images/kuching_activities/sarawak_river2.png',
       'lib/assets/images/kuching_activities/sarawak_river3.png',
@@ -178,7 +184,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/half_day_annah1.png',
     location: 'Sarawak',
     price: 190.0,
-    description: """Embark on a 90-minute drive to begin your journey to Annah Rais Longhouse, home of the Bidayuh tribe. Explore the rich cultural heritage of the Bidayuh tribe within the historic, jungle-built longhouse that has been home to 80 families for centuries. Your guided exploration includes a fascinating journey into the history, architecture, and farming traditions of the Land Dayaks. Witness the ancient practice of human skull worship and delve into the traditions of the Bidayuh Village with a knowledgeable local guide. Immerse yourself in the unique cultural experience of the Bidayuh tribe as you learn about their way of life and traditions.""",
+    description:
+        """Embark on a 90-minute drive to begin your journey to Annah Rais Longhouse, home of the Bidayuh tribe. Explore the rich cultural heritage of the Bidayuh tribe within the historic, jungle-built longhouse that has been home to 80 families for centuries. Your guided exploration includes a fascinating journey into the history, architecture, and farming traditions of the Land Dayaks. Witness the ancient practice of human skull worship and delve into the traditions of the Bidayuh Village with a knowledgeable local guide. Immerse yourself in the unique cultural experience of the Bidayuh tribe as you learn about their way of life and traditions.""",
     photos: [
       'lib/assets/images/kuching_activities/half_day_annah2.png',
       'lib/assets/images/kuching_activities/half_day_annah3.png',
@@ -191,7 +198,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/splash_art1.png',
     location: 'Sarawak',
     price: 160.0,
-    description: """Dive into the world of creativity at our Splash Art Experience workshop – a vibrant experience for all ages! Rediscover the joy of childhood as you let paint splatter and immerse your hands in a colorful masterpiece. Unleash your inner artist and express yourself as you create and splatter vibrant canvases using unique creative tools. Choose your preferred paint colors and start your art journey in the workshop! Whether you're a beginner or a seasoned artist, this immersive experience promises a fun-filled and creative adventure in Kuching.""",
+    description:
+        """Dive into the world of creativity at our Splash Art Experience workshop – a vibrant experience for all ages! Rediscover the joy of childhood as you let paint splatter and immerse your hands in a colorful masterpiece. Unleash your inner artist and express yourself as you create and splatter vibrant canvases using unique creative tools. Choose your preferred paint colors and start your art journey in the workshop! Whether you're a beginner or a seasoned artist, this immersive experience promises a fun-filled and creative adventure in Kuching.""",
     photos: [
       'lib/assets/images/kuching_activities/splash_art2.png',
       'lib/assets/images/kuching_activities/splash_art3.png',
@@ -204,7 +212,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/museaum1.png',
     location: 'Sarawak',
     price: 16.0,
-    description: """The Borneo Cultural Museum is located in the center of Kuching city next to Padang Merdeka. This five-storey building is designed in a modern style, with distinctive architectural features that reflect Sarawak’s unique traditional crafts and rich cultural heritage. Each gallery within this five-storey building offers a different experience. The children’s gallery theme on the second floor is 'Love our Rivers’, the ‘In Harmony with Nature’ gallery is on the third floor, the ‘Time Changes’ gallery is on the fourth floor, and the ‘Objects of Desire’ gallery is on the fifth floor. Visit this museum to delve into the diverse cultural heritage of Sarawak and explore its rich history and traditions.""",
+    description:
+        """The Borneo Cultural Museum is located in the center of Kuching city next to Padang Merdeka. This five-storey building is designed in a modern style, with distinctive architectural features that reflect Sarawak’s unique traditional crafts and rich cultural heritage. Each gallery within this five-storey building offers a different experience. The children’s gallery theme on the second floor is 'Love our Rivers’, the ‘In Harmony with Nature’ gallery is on the third floor, the ‘Time Changes’ gallery is on the fourth floor, and the ‘Objects of Desire’ gallery is on the fifth floor. Visit this museum to delve into the diverse cultural heritage of Sarawak and explore its rich history and traditions.""",
     photos: [
       'lib/assets/images/kuching_activities/museaum2.png',
       'lib/assets/images/kuching_activities/museaum3.png',
@@ -217,7 +226,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/kayaking1.png',
     location: 'Sarawak',
     price: 240.37,
-    description: """Experience the thrill and beauty of nature with the Fun Filled Kayaking Adventure in Kuching. This 6-hour kayak adventure takes you to the stunning Sungai Sarawak Kiri, where you can immerse yourself in the lush tropical surroundings. During the kayaking adventure, you will have breaks at a mini waterfall, allowing you to relax and take in the beauty of the surroundings. It is recommended to bring a waterproof camera to capture the stunning moments along the river. Lunch and bottled water are included, ensuring you stay hydrated and energized throughout the day.""",
+    description:
+        """Experience the thrill and beauty of nature with the Fun Filled Kayaking Adventure in Kuching. This 6-hour kayak adventure takes you to the stunning Sungai Sarawak Kiri, where you can immerse yourself in the lush tropical surroundings. During the kayaking adventure, you will have breaks at a mini waterfall, allowing you to relax and take in the beauty of the surroundings. It is recommended to bring a waterproof camera to capture the stunning moments along the river. Lunch and bottled water are included, ensuring you stay hydrated and energized throughout the day.""",
     photos: [
       'lib/assets/images/kuching_activities/kayaking2.png',
       'lib/assets/images/kuching_activities/kayaking3.png',
@@ -230,7 +240,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/jong_crocodile1.png',
     location: 'Sarawak',
     price: 25.0,
-    description: "Discover the wonders of wildlife at Jong’s Crocodile Farm, the finest and largest captive breeding crocodile farm in Malaysia. Visitors can have the enchanting experience of walking freely among the Jungle of Borneo, surrounded by lush greenery and exotic wildlife. Witness hundreds of crocodiles in their natural habitat and learn about their behavior and conservation efforts. Additionally, get the chance to see rare species of birds that can only be found on Borneo Island. With its diverse range of wildlife and immersive experiences, Jong’s Crocodile Farm promises an unforgettable adventure for visitors of all ages.",
+    description:
+        "Discover the wonders of wildlife at Jong’s Crocodile Farm, the finest and largest captive breeding crocodile farm in Malaysia. Visitors can have the enchanting experience of walking freely among the Jungle of Borneo, surrounded by lush greenery and exotic wildlife. Witness hundreds of crocodiles in their natural habitat and learn about their behavior and conservation efforts. Additionally, get the chance to see rare species of birds that can only be found on Borneo Island. With its diverse range of wildlife and immersive experiences, Jong’s Crocodile Farm promises an unforgettable adventure for visitors of all ages.",
     photos: [
       'lib/assets/images/kuching_activities/jong_crocodile2.png',
       'lib/assets/images/kuching_activities/jong_crocodile3.png',
@@ -243,7 +254,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/satang_island1.png',
     location: 'Sarawak',
     price: 380.0,
-    description: "Embark on an unforgettable adventure with the Satang Island Day Trip with Dolphin Watching in Sarawak. Witness the graceful Irrawaddy dolphins and sea birds such as Black Tern & White Tern as you cruise along the coastal waters. Experience the thrill of searching for crocodiles in their natural habitat during a mangrove cruise. Dive into the crystal-clear waters of Satang Island for an exhilarating snorkeling session and visit the Sea Turtle Conservation Centre to learn about the conservation efforts for these majestic creatures. With its combination of wildlife encounters and marine activities, this day trip promises a memorable experience for nature enthusiasts and adventure seekers alike.",
+    description:
+        "Embark on an unforgettable adventure with the Satang Island Day Trip with Dolphin Watching in Sarawak. Witness the graceful Irrawaddy dolphins and sea birds such as Black Tern & White Tern as you cruise along the coastal waters. Experience the thrill of searching for crocodiles in their natural habitat during a mangrove cruise. Dive into the crystal-clear waters of Satang Island for an exhilarating snorkeling session and visit the Sea Turtle Conservation Centre to learn about the conservation efforts for these majestic creatures. With its combination of wildlife encounters and marine activities, this day trip promises a memorable experience for nature enthusiasts and adventure seekers alike.",
     photos: [
       'lib/assets/images/kuching_activities/satang_island2.png',
       'lib/assets/images/kuching_activities/satang_island3.png',
@@ -256,7 +268,8 @@ List<Activity> activitiesList = [
     backgroundImage: 'lib/assets/images/kuching_activities/shared_magrove1.png',
     location: 'Sarawak',
     price: 292.12,
-    description: "Explore the unique ecosystem of Borneo's mangroves and witness the rare and endangered Irrawaddy dolphins on the Shared Mangrove & Irrawaddy Dolphin Watching tour. Cruise along the Santubong River, home to mangroves teeming with weird and wonderful wildlife, including jumping fish, monitor lizards, and monkeys. Experience the tranquility of this natural habitat and keep your eyes peeled for the elusive Irrawaddy dolphins, known to inhabit these waters. This small-group experience includes 2-way transfers from your Kuching city hotel, ensuring a hassle-free and immersive wildlife encounter.",
+    description:
+        "Explore the unique ecosystem of Borneo's mangroves and witness the rare and endangered Irrawaddy dolphins on the Shared Mangrove & Irrawaddy Dolphin Watching tour. Cruise along the Santubong River, home to mangroves teeming with weird and wonderful wildlife, including jumping fish, monitor lizards, and monkeys. Experience the tranquility of this natural habitat and keep your eyes peeled for the elusive Irrawaddy dolphins, known to inhabit these waters. This small-group experience includes 2-way transfers from your Kuching city hotel, ensuring a hassle-free and immersive wildlife encounter.",
     photos: [
       'lib/assets/images/kuching_activities/shared_magrove2.png',
       'lib/assets/images/kuching_activities/shared_magrove3.png',
@@ -264,5 +277,3 @@ List<Activity> activitiesList = [
     ],
   ),
 ];
-
-  

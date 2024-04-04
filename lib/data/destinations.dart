@@ -14,16 +14,7 @@ List<Destination> destinationList = [
     longDescription:
         "Borneo's iconic peak, offering exhilarating hikes and panoramic vistas amidst lush landscapes and rich biodiversity.",
   ),
-  Destination(
-    destinationName: "Semporna",
-    location: "Sabah",
-    backgroundImage: "lib/assets/images/semporna.jpg",
-    destinationDescription: "World-renowned island paradises like Sipadan",
-    locationTag: "Beach",
-    region: "East",
-    longDescription:
-        "A coastal town renowned for its vibrant marine life and stunning diving opportunities amidst the coral-rich waters of Sabah.",
-  ),
+
   Destination(
     destinationName: "Sandakan",
     location: "Sabah",
