@@ -1,142 +1,174 @@
-import 'package:flutter/material.dart';
-import 'package:green/data/nowaste_posts.dart';
+//
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
-import 'package:green/widgets/button.dart';
-import 'package:green/widgets/begreen_card.dart';
-import 'package:green/widgets/topbar_logo_notif.dart';
+import 'package:green/model/bereal_model.dart';
 
-class BeGreenCommunityScreen extends StatelessWidget {
-  const BeGreenCommunityScreen({super.key});
+class BeGreemItem extends StatefulWidget {
+  final BeReal beRealPost;
+
+  const BeGreemItem({Key? key, required this.beRealPost}) : super(key: key);
+
+  @override
+  State<BeGreemItem> createState() => _ForumItemState();
+}
+
+class _ForumItemState extends State<BeGreemItem> {
+  bool isLiked = false;
+  int likesCount = 0;
+
+  String calculateTimeDifference(String postTimeString) {
+    DateTime postTime =
+        DateTime.parse(postTimeString); // Convert string to DateTime
+    DateTime now = DateTime.now();
+    Duration difference = now.difference(postTime);
+
+    if (difference.inMinutes < 60) {
+      return '${difference.inMinutes} min(s) ago';
+    } else if (difference.inHours < 24) {
+      return '${difference.inHours} hr(s) ago';
+    } else {
+      return '${difference.inDays} day(s) ago';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            "lib/assets/images/grad1.png",
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
+    // Construct the URL for the image from the image path
+    String imageUrl = ''; // You should replace this with the actual URL
+
+    // If the image path is not null or empty, construct the URL
+    // ignore: unnecessary_null_comparison
+    if (widget.beRealPost.postImage != null &&
+        widget.beRealPost.postImage.isNotEmpty) {
+      // Assuming your storage bucket URL is 'https://your_storage_bucket_url.com'
+      imageUrl = widget.beRealPost.postImage;
+    }
+
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 10,
+      ),
+      child: Card(
+        color: Colors.transparent,
+        elevation: 0,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 50),
+          decoration: BoxDecoration(
+            color: AppColor.btnColorSecondary,
+            borderRadius: AppStyles.borderRadiusAll,
+            boxShadow: [
+              AppShadow.innerShadow3,
+              AppShadow.innerShadow4,
+            ],
           ),
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const TopBarLogoNotif(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
-                    width: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "BeGreen",
-                          style: AppFonts.largeMediumText,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: List.generate(
-                              beGreenCardList.length,
-                              (index) => BeGreenCard(
-                                beGreenCard: beGreenCardList[index],
-                                margin: EdgeInsets.only(
-                                  left: 15,
-                                  right: index == beGreenCardList.length - 1
-                                      ? 15
-                                      : 0,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Container(
-                    margin: AppStyles.edgeInsetsLR,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Image.asset(
-                          "lib/assets/images/begreen.png",
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: Column(
-                            children: [
-                              Text(
-                                "HEY SAM",
-                                style: AppFonts.heading3White,
-                              ),
-                              Text(
-                                "It’s time for BeGreen.",
-                                style: AppFonts.smallLightTextWhite,
-                              ),
-                              Text(
-                                "Take a photo of your green efforts and share it with the community!",
-                                style: AppFonts.smallLightTextWhite,
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                "and,",
-                                style: AppFonts.smallLightTextWhite,
-                              ),
-                              Text(
-                                "To Earn Green Points.",
-                                style: AppFonts.smallLightTextWhite,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Image.asset(
-                                "lib/assets/images/greenpts.png",
-                                width: 70,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0), // Increased padding
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    SizedBox(
+                      child: ClipOval(
+                        child: widget.beRealPost.userImage != ''
+                            ? Image.network(
+                                widget.beRealPost.userImage.toString(),
+                                width: 60,
+                                height: 60,
+                                fit: BoxFit.cover,
                               )
-                            ],
+                            : Image.asset(
+                                "lib/assets/images/user_Anon.png",
+                                width: 60,
+                                height: 60,
+                                fit: BoxFit.cover,
+                              ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.beRealPost.userName,
+                            style: AppFonts.smallLightText,
+                          ), // CHANGE TO USER NAME FROM FIREBASE
+                          Text(
+                            calculateTimeDifference(widget.beRealPost.time),
+                            style: AppFonts
+                                .extraSmallLightText, // Adjusted font size
                           ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        widget.beRealPost.greenRewards,
+                        style: AppFonts.smallLightText,
+                        softWrap: true,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8), // Increased spacing
+                // Display the image if there is one
+                if (imageUrl.isNotEmpty)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      imageUrl,
+                      width:
+                          double.infinity, // Make the image take the full width
+                      height: 200, // Adjust the height as needed
+                      fit: BoxFit.cover, // Cover the space with the image
+                    ),
+                  ),
+
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 35,
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isLiked = !isLiked; // Toggle the liked state
+                            likesCount += isLiked ? 1 : -1;
+                          });
+                        },
+                        icon: Image.asset(
+                          isLiked
+                              ? "lib/assets/images/logo.png"
+                              : "lib/assets/images/logo.png",
+                          fit: BoxFit.cover,
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 15),
-                  Padding(
-                    padding: AppStyles.edgeInsetsLR,
-                    child: DefaultButton(
-                      text: "Take a Photo",
-                      press: () {},
-                      backgroundColor: AppColor.btnColorPrimary,
-                      height: 40,
-                      fontStyle: AppFonts.normalRegularTextWhite,
-                      width: double.infinity,
-                      padding: EdgeInsets.zero,
+                    Text(
+                      // '${widget.forumPost.likes}',
+                      '$likesCount',
+                      style: AppFonts.smallLightText, // Adjusted font size
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  )
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

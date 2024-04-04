@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green/auth_widget_tree.dart';
+import 'package:green/screens/begreen.dart';
+import 'package:green/screens/begreen_community_screen.dart';
 
 class TopBarLogoNotif extends StatelessWidget {
   const TopBarLogoNotif({
@@ -19,7 +21,14 @@ class TopBarLogoNotif extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BeGreen(),
+                ),
+              );
+            },
             icon: Image.asset(
               "lib/assets/icons/bell.png",
               width: 30,

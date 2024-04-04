@@ -49,6 +49,14 @@ dependencies:
   firebase_auth: ^4.18.0
   cloud_firestore: ^4.15.10
   intl: ^0.18.1
+  camera: ^0.10.5+9
+  image_picker: ^0.8.9
+  firebase_storage: ^11.7.0
+  flutter_tflite: ^1.0.1
+  tflite_flutter: ^0.10.1
+  uuid: ^4.3.3
+
+
 
 dev_dependencies:
   flutter_test:
