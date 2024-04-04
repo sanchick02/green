@@ -79,6 +79,8 @@ class _NavigationState extends State<Navigation> {
 
   @override
   void initState() {
+    Provider.of<DestinationProvider>(context, listen: false)
+        .fetchDestinationData();
     Provider.of<BeGreenProvider>(context, listen: false)
         .fetchUserData()
         .then((_) {

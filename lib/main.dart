@@ -52,6 +52,21 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: BeGreenProvider(),
         ),
+        ChangeNotifierProvider.value(
+          value: DestinationProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: AccommodationProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: ActivityProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: FlightDetailProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: TourProvider(),
+        ),
       ],
       child: MaterialApp(
         home: const AuthWidgetTree(),
