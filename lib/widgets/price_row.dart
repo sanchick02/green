@@ -13,13 +13,12 @@ class PriceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    double priceAfterReduction = price*0.95;
+    double priceAfterReduction = price * 0.95;
 
     return Row(
       children: [
         Text(
-          "Price From: MYR " + price.toStringAsFixed(2),
+          "From: MYR " + price.toStringAsFixed(2),
           style: AppFonts.smallLightText,
         ),
         const SizedBox(

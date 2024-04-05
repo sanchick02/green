@@ -431,7 +431,7 @@ List<FlightDetail> flightDetailList = [
     flightReturnTime: "Returns: Kota Kinabalu (BKI) at 10:10AM",
     flightDestinationAirline: "KUL - BKI, Malaysia Airlines",
     flightType: "Direct",
-    flightDuration: "Duration: 2h 40m",
+    flightDuration: "2h 40m",
   ),
 FlightDetail(
     destinationName: "Mount Kinabalu",
@@ -445,7 +445,7 @@ FlightDetail(
     flightReturnTime: "Returns: Kota Kinabalu (BKI) at 9:50PM",
     flightDestinationAirline: "KUL - PEN - BKI, Firefly",
     flightType: "1 stop",
-    flightDuration: "Duration: 13h50m",
+    flightDuration: "13h50m",
   ),
 
 FlightDetail(
@@ -460,7 +460,7 @@ FlightDetail(
     flightReturnTime: "Returns: Kuching at 12:20PM",
     flightDestinationAirline: "KUL - KCH, AirAsia",
     flightType: "Non-stop",
-    flightDuration: "Duration: 1h 50m",
+    flightDuration: "1h 50m",
   ),
 
 FlightDetail(
@@ -475,7 +475,7 @@ FlightDetail(
     flightReturnTime: "Returns: Kuching at 10:35AM",
     flightDestinationAirline: "KUL - KCH, Malaysia Airlines",
     flightType: "Non-stop",
-    flightDuration: "Duration: 1h 50m",
+    flightDuration: "1h 50m",
   ),
 
 FlightDetail(
@@ -490,7 +490,7 @@ FlightDetail(
     flightReturnTime: "Returns: Kuching at 6:40PM",
     flightDestinationAirline: "KUL - PEN - KCH, Firefly",
     flightType: "1-stop",
-    flightDuration: "Duration: 11h 10m",
+    flightDuration: "11h 10m",
   ),
 
 

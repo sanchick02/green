@@ -134,7 +134,7 @@ class DestinationsList extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: Container(
             color: const Color(0xff252525).withOpacity(0.05),
-            height: 220,
+            height: MediaQuery.of(context).size.width * 0.6,
             width: double.infinity,
             child: Row(
               children: [

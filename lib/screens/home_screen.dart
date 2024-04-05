@@ -55,21 +55,16 @@ class _HomeScreenState extends State<HomeScreen> {
         .toList();
 
     return Scaffold(
-      // backgroundColor: AppColor.backgroundColor,
+      backgroundColor: Color(0xffD7E8FF),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Image.asset(
-                "lib/assets/images/grad.png",
-                fit: BoxFit.cover,
-                height: double.infinity,
-                width: double.infinity,
-              ),
-              SizedBox(
-                height: double.infinity,
-                width: double.infinity,
-                child: Column(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const TopBarLogoNotif(),
@@ -314,8 +309,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -501,7 +501,7 @@ class DestinationDetailsScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        //const FlightCard(),
+                                        // const FlightCard(),
                                         const SizedBox(
                                           height: 20,
                                         ),

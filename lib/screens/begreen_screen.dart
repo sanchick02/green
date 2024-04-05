@@ -45,29 +45,34 @@ class _BeGreenScreenState extends State<BeGreenScreen> {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const TopBarLogoNotif(),
-              Container(
-                margin: EdgeInsets.only(top: 15, bottom: 30),
-                width: double.infinity,
-                constraints: BoxConstraints(minHeight: 100),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: AppStyles.edgeInsetsLR,
-                      child: Text(
-                        "BeGreen Community",
-                        style: AppFonts.normalRegularText,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const TopBarLogoNotif(),
+                Container(
+                  margin: EdgeInsets.only(top: 15, bottom: 30),
+                  width: double.infinity,
+                  constraints: BoxConstraints(minHeight: 100),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: AppStyles.edgeInsetsLR,
+                        child: Text(
+                          "BeGreen Community",
+                          style: AppFonts.normalRegularText,
+                        ),
                       ),
-                    ),
-                    mainContent,
-                  ],
+                      mainContent,
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
