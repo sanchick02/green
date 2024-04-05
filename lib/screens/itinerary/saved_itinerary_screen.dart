@@ -17,158 +17,166 @@ class SavedItineraryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          // padding: AppStyles.edgeInsetsLR,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Image.asset(
-                      "lib/assets/icons/arrow_back_gray_small.png",
-                      width: 40,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Image.asset(
-                    "lib/assets/images/topbar_logo.png",
-                    width: 80,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: AppStyles.edgeInsetsLR,
-                child: Text(
-                  "My Saved Itineraries",
-                  style: AppFonts.largeMediumText,
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              ClipRRect(
-                borderRadius: AppStyles.borderRadiusAll,
-                child: CarouselSlider(
-                  items: upcomingTripList.map((item) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => UpcomingTripDetailsScreen(
-                              upcomingTrip: item,
-                            ),
-                          ),
-                        );
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+          child: SingleChildScrollView(
+            // padding: AppStyles.edgeInsetsLR,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
                       },
-                      child: Padding(
-                        padding: AppStyles.edgeInsetsLR,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Stack(
-                                children: [
-                                  Stack(
-                                    alignment: Alignment.bottomCenter,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width -
-                                                30,
-                                        constraints: const BoxConstraints(
-                                            minHeight: 100),
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            AppShadow.innerShadow3,
-                                            AppShadow.innerShadow4,
-                                          ],
-                                          borderRadius:
-                                              AppStyles.borderRadiusAll,
-                                          gradient: AppColor.blackGradient(),
-                                        ),
-                                      ),
-                                      Image.asset(
-                                        item.image,
-                                        fit: BoxFit.cover,
-                                        width: double.infinity,
-                                      ),
-                                      ClipRRect(
-                                        borderRadius:
-                                            AppStyles.borderRadiusBottom,
-                                        child: Container(
-                                          width: double.infinity,
+                      icon: Image.asset(
+                        "lib/assets/icons/arrow_back_gray_small.png",
+                        width: 40,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Image.asset(
+                      "lib/assets/images/topbar_logo.png",
+                      width: 80,
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: AppStyles.edgeInsetsLR,
+                  child: Text(
+                    "My Saved Itineraries",
+                    style: AppFonts.largeMediumText,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                ClipRRect(
+                  borderRadius: AppStyles.borderRadiusAll,
+                  child: CarouselSlider(
+                    items: upcomingTripList.map((item) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UpcomingTripDetailsScreen(
+                                upcomingTrip: item,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: AppStyles.edgeInsetsLR,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Stack(
+                                  children: [
+                                    Stack(
+                                      alignment: Alignment.bottomCenter,
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              30,
+                                          constraints: const BoxConstraints(
+                                              minHeight: 100),
                                           decoration: BoxDecoration(
                                             boxShadow: [
                                               AppShadow.innerShadow3,
                                               AppShadow.innerShadow4,
                                             ],
                                             borderRadius:
-                                                AppStyles.borderRadiusBottom,
+                                                AppStyles.borderRadiusAll,
                                             gradient: AppColor.blackGradient(),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                      vertical: 10,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          item.destinationName,
-                                          style:
-                                              AppFonts.normalRegularTextWhite,
+                                        Image.asset(
+                                          item.image,
+                                          fit: BoxFit.cover,
+                                          width: double.infinity,
                                         ),
-                                        Text(
-                                          "MAY 30, 2024 - JUNE 3, 2024",
-                                          style:
-                                              AppFonts.extraSmallLightTextWhite,
+                                        ClipRRect(
+                                          borderRadius:
+                                              AppStyles.borderRadiusBottom,
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              boxShadow: [
+                                                AppShadow.innerShadow3,
+                                                AppShadow.innerShadow4,
+                                              ],
+                                              borderRadius:
+                                                  AppStyles.borderRadiusBottom,
+                                              gradient:
+                                                  AppColor.blackGradient(),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                        vertical: 10,
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            item.destinationName,
+                                            style:
+                                                AppFonts.normalRegularTextWhite,
+                                          ),
+                                          Text(
+                                            "MAY 30, 2024 - JUNE 3, 2024",
+                                            style: AppFonts
+                                                .extraSmallLightTextWhite,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            const ItineraryCard(
-                              title: "Immerse in Sabah's Culture",
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                          ],
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              const ItineraryCard(
+                                title: "Immerse in Sabah's Culture",
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }).toList(),
-                  options: CarouselOptions(
-                    // autoPlayInterval: const Duration(seconds: 4),
-                    autoPlay: false,
-                    height: MediaQuery.of(context).size.height,
-                    aspectRatio: 2.0,
-                    viewportFraction: 1.0,
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      // autoPlayInterval: const Duration(seconds: 4),
+                      autoPlay: false,
+                      height: MediaQuery.of(context).size.height,
+                      aspectRatio: 2.0,
+                      viewportFraction: 1.0,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

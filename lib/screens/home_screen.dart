@@ -55,245 +55,262 @@ class _HomeScreenState extends State<HomeScreen> {
         .toList();
 
     return Scaffold(
-      backgroundColor: AppColor.backgroundColor,
+      backgroundColor: Color(0xffD7E8FF),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const TopBarLogoNotif(),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Welcome, $name!",
-                          style: AppFonts.largeMediumText,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "You are better than 74% of the travelers.",
-                          style: AppFonts.smallLightText,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                onTap: () => navigateNextPage(context, StatisticsScreen()),
-                child: StatisticsTracker(points: points),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                width: double.infinity,
-                child: Column(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Where To?",
-                      style: AppFonts.largeMediumText,
+                    const TopBarLogoNotif(),
+                    const SizedBox(
+                      height: 20,
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: double.infinity,
-                          height: 40,
-                          child: Stack(
-                            alignment: Alignment.centerRight,
+                    Container(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: AppColor.fontColorSecondary,
-                                  boxShadow: [
-                                    AppShadow.innerShadow3,
-                                  ],
-                                  borderRadius: AppStyles.borderRadiusAll,
-                                ),
+                              Text(
+                                "Welcome, $name!",
+                                style: AppFonts.largeMediumText,
                               ),
-                              TextFormField(
-                                controller: _searchController,
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: Colors.transparent,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 15),
-                                  border: OutlineInputBorder(
-                                    borderRadius: AppStyles.borderRadiusAll,
-                                    borderSide: BorderSide.none,
-                                  ),
-                                ),
-                                style: AppFonts.smallRegularText,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 15),
-                                child: Image.asset(
-                                  "lib/assets/icons/search.png",
-                                  width: 20,
-                                ),
-                              )
                             ],
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Your Upcoming Trip",
-                      style: AppFonts.normalRegularText,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "You are better than 74% of the travelers.",
+                                style: AppFonts.smallLightText,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () =>
+                          navigateNextPage(context, StatisticsScreen()),
+                      child: StatisticsTracker(points: points),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Where To?",
+                            style: AppFonts.largeMediumText,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: double.infinity,
+                                height: 40,
+                                child: Stack(
+                                  alignment: Alignment.centerRight,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: AppColor.fontColorSecondary,
+                                        boxShadow: [
+                                          AppShadow.innerShadow3,
+                                        ],
+                                        borderRadius: AppStyles.borderRadiusAll,
+                                      ),
+                                    ),
+                                    TextFormField(
+                                      controller: _searchController,
+                                      keyboardType: TextInputType.text,
+                                      decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.transparent,
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 10, horizontal: 15),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              AppStyles.borderRadiusAll,
+                                          borderSide: BorderSide.none,
+                                        ),
+                                      ),
+                                      style: AppFonts.smallRegularText,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 15),
+                                      child: Image.asset(
+                                        "lib/assets/icons/search.png",
+                                        width: 20,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Your Upcoming Trip",
+                            style: AppFonts.normalRegularText,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          UpcomingTripCarousel(),
+                          ClipRRect(
+                            borderRadius: AppStyles.borderRadiusBottom,
+                            child: Container(
+                              width: double.infinity,
+                              // height: 220 * 0.5,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  AppShadow.innerShadow3,
+                                  AppShadow.innerShadow4,
+                                ],
+                                gradient: AppColor.whiteGradient(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Limited Packages You May Also Like",
+                            style: AppFonts.normalRegularText,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const PackageCarousel(
+                            showOffer: true,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Padding(
+                      padding: AppStyles.edgeInsetsLR,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Explore by Destinations",
+                            style: AppFonts.largeMediumText2,
+                          ),
+                          Spacer(),
+                          DefaultButton(
+                            text: "See More",
+                            press: () {
+                              navigateNextPage(
+                                  context, ExploreDestinationsScreen());
+                            },
+                            backgroundColor: AppColor.btnColorPrimary,
+                            height: 35,
+                            fontStyle: AppFonts.extraSmallLightTextWhite,
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    UpcomingTripCarousel(),
-                    ClipRRect(
-                      borderRadius: AppStyles.borderRadiusBottom,
-                      child: Container(
-                        width: double.infinity,
-                        // height: 220 * 0.5,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            AppShadow.innerShadow3,
-                            AppShadow.innerShadow4,
-                          ],
-                          gradient: AppColor.whiteGradient(),
+                    Container(
+                      padding: AppStyles.edgeInsetsLR,
+                      child: Text(
+                        "Sabah",
+                        style: AppFonts.normalRegularText,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: List.generate(
+                          sabahDestinations.length,
+                          (index) => DestinationCard(
+                            destination: sabahDestinations[index],
+                            margin: EdgeInsets.only(
+                              left: 15,
+                              right: index == sabahDestinations.length - 1
+                                  ? 15
+                                  : 0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Limited Packages You May Also Like",
-                      style: AppFonts.normalRegularText,
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: Text(
+                        "Sarawak",
+                        style: AppFonts.normalRegularText,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: List.generate(
+                          sarawakDestinations.length,
+                          (index) => DestinationCard(
+                            destination: sarawakDestinations[index],
+                            margin: EdgeInsets.only(
+                              left: 15,
+                              right: index == sarawakDestinations.length - 1
+                                  ? 15
+                                  : 0,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(
-                      height: 10,
-                    ),
-                    const PackageCarousel(
-                      showOffer: true,
+                      height: 30,
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(height: 40),
-              Padding(
-                padding: AppStyles.edgeInsetsLR,
-                child: Row(
-                  children: [
-                    Text(
-                      "Explore by Destinations",
-                      style: AppFonts.largeMediumText2,
-                    ),
-                    Spacer(),
-                    DefaultButton(
-                      text: "See More",
-                      press: () {
-                        navigateNextPage(context, ExploreDestinationsScreen());
-                      },
-                      backgroundColor: AppColor.btnColorPrimary,
-                      height: 35,
-                      fontStyle: AppFonts.extraSmallLightTextWhite,
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 8),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                padding: AppStyles.edgeInsetsLR,
-                child: Text(
-                  "Sabah",
-                  style: AppFonts.normalRegularText,
-                ),
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: List.generate(
-                    sabahDestinations.length,
-                    (index) => DestinationCard(
-                      destination: sabahDestinations[index],
-                      margin: EdgeInsets.only(
-                        left: 15,
-                        right: index == sabahDestinations.length - 1 ? 15 : 0,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Text(
-                  "Sarawak",
-                  style: AppFonts.normalRegularText,
-                ),
-              ),
-              const SizedBox(height: 10),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: List.generate(
-                    sarawakDestinations.length,
-                    (index) => DestinationCard(
-                      destination: sarawakDestinations[index],
-                      margin: EdgeInsets.only(
-                        left: 15,
-                        right: index == sarawakDestinations.length - 1 ? 15 : 0,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

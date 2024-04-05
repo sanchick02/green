@@ -14,7 +14,6 @@ class FlightCard extends StatelessWidget {
 
   final FlightDetail flightDetail;
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,12 +43,13 @@ class FlightCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.75,
+                width: MediaQuery.of(context).size.width * 0.65,
                 child: Text(
                   flightDetail.co2Description,
                   style: AppFonts.extraSmallLightText,
                 ),
               ),
+              Spacer(),
               Image.asset(
                 "lib/assets/images/greenpts.png",
                 width: 20,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static Color backgroundColor = Color.fromARGB(255, 220, 242, 220);
+  static Color backgroundColor = Color(0xffD7E8FF);
   static Color fontColorPrimary = const Color(0xff252525);
   static Color fontColorSecondary = const Color(0xffFFFFFF);
 
@@ -70,6 +70,18 @@ class AppColor {
         Colors.black.withOpacity(0.9),
         Colors.black.withOpacity(0.4),
         Colors.black.withOpacity(0.0),
+      ],
+    );
+  }
+
+  static LinearGradient backgroundGradient() {
+    return LinearGradient(
+      begin: Alignment.bottomCenter,
+      end: Alignment.topCenter,
+      colors: [
+        Color(0xffEAFFF5),
+        Color(0xffE1FFE3),
+        Color(0xffD7E8FF),
       ],
     );
   }

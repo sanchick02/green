@@ -42,7 +42,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
     5,
   ];
 
-  int? selectedValue;
+  int? selectedKidValue;
+  int? selectedAdultValue;
+  int? selectedSeniorValue;
+  int? selectedStartDayValue;
+  String? selectedStartMonthValue;
+  int? selectedStartYearValue;
+  int? selectedEndDayValue;
+  String? selectedEndMonthValue;
+  int? selectedEndYearValue;
   bool isButtonClicked = false;
   bool isActivityButtonClicked = true;
   bool isAccommodationButtonClicked = false;
@@ -336,12 +344,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -382,12 +384,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -428,12 +424,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -474,12 +464,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                                 activityDetailList[index]);
                                           },
                                           child: RecommendationCard(
-                                            title: activityList[index].title,
-                                            price: activityList[index]
-                                                .price
-                                                .toString(),
-                                            image: activityList[index]
-                                                .backgroundImage,
                                             margin: EdgeInsets.only(
                                                 left: 15,
                                                 right: index ==
@@ -629,7 +613,44 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           ],
                         ),
                       ),
-                      const CustomDatePicker(),
+                      CustomDatePicker(
+                        selectedStartDateValue: selectedStartDayValue,
+                        selectedStartMonthValue: selectedStartMonthValue,
+                        selectedStartYearValue: selectedStartYearValue,
+                        selectedEndDateValue: selectedEndDayValue,
+                        selectedEndMonthValue: selectedEndMonthValue,
+                        selectedEndYearValue: selectedEndYearValue,
+                        onStartDateChanged: (int? value) {
+                          setState(() {
+                            selectedStartDayValue = value;
+                          });
+                        },
+                        onStartMonthChanged: (String? value) {
+                          setState(() {
+                            selectedStartMonthValue = value;
+                          });
+                        },
+                        onStartYearChanged: (int? value) {
+                          setState(() {
+                            selectedStartYearValue = value;
+                          });
+                        },
+                        onEndDateChanged: (int? value) {
+                          setState(() {
+                            selectedEndDayValue = value;
+                          });
+                        },
+                        onEndMonthChanged: (String? value) {
+                          setState(() {
+                            selectedEndMonthValue = value;
+                          });
+                        },
+                        onEndYearChanged: (int? value) {
+                          setState(() {
+                            selectedEndYearValue = value;
+                          });
+                        },
+                      ),
                       const SizedBox(
                         height: 30,
                       ),
@@ -644,10 +665,22 @@ class _DestinationScreenState extends State<DestinationScreen> {
                             ),
                             NumberOfPaxDropdown(
                               items: items,
-                              selectedValue: selectedValue,
-                              onChanged: (int? value) {
+                              selectedKidValue: selectedKidValue,
+                              selectedAdultValue: selectedAdultValue,
+                              selectedSeniorValue: selectedSeniorValue,
+                              onKidChanged: (int? value) {
                                 setState(() {
-                                  selectedValue = value;
+                                  selectedKidValue = value;
+                                });
+                              },
+                              onAdultChanged: (int? value) {
+                                setState(() {
+                                  selectedAdultValue = value;
+                                });
+                              },
+                              onSeniorChanged: (int? value) {
+                                setState(() {
+                                  selectedSeniorValue = value;
                                 });
                               },
                             ),

@@ -43,9 +43,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: Container(
         color: AppColor.backgroundColor,
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              color: AppColor.backgroundColor,
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Stack(

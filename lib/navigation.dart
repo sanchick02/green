@@ -8,6 +8,7 @@ import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/provider/begreen_post_provider.dart';
 import 'package:green/provider/user_provider.dart';
+import 'package:green/providers/destination_provider.dart';
 import 'package:green/screens/begreen.dart';
 import 'package:green/screens/begreen_community_list.dart';
 import 'package:green/screens/begreen_item.dart';

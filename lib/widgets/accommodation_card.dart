@@ -26,7 +26,7 @@ class AccommodationCard extends StatelessWidget {
       width: double.infinity,
       constraints: BoxConstraints(minHeight: 150),
       decoration: BoxDecoration(
-        color: AppColor.lightGrey,
+        color: AppColor.extraLightGrey,
         borderRadius: AppStyles.borderRadiusAll,
       ),
       child: Row(
@@ -40,6 +40,7 @@ class AccommodationCard extends StatelessWidget {
                   image,
                   width: MediaQuery.of(context).size.width * 0.25,
                   height: MediaQuery.of(context).size.width * 0.25,
+                  fit: BoxFit.cover,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.25,

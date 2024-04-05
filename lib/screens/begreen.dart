@@ -160,231 +160,224 @@ class _BeGreenState extends State<BeGreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            "lib/assets/images/grad.png",
-            fit: BoxFit.cover,
-            height: double.infinity,
-            width: double.infinity,
-          ),
-          SafeArea(
-            child: Column(
-              children: [
-                AppBar(
-                  backgroundColor: Colors.transparent,
-                  title: Text(
-                    "BeGreen",
-                    style: AppFonts.normalRegularText,
-                  ),
-                  leading: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Image.asset(
-                      "lib/assets/icons/arrow_back_gray_small.png",
-                      width: 30,
-                    ),
+      backgroundColor: AppColor.backgroundColor,
+      body: SafeArea(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColor.backgroundGradient()),
+          child: Column(
+            children: [
+              AppBar(
+                backgroundColor: Colors.transparent,
+                title: Text(
+                  "BeGreen",
+                  style: AppFonts.normalRegularText,
+                ),
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Image.asset(
+                    "lib/assets/icons/arrow_back_gray_small.png",
+                    width: 30,
                   ),
                 ),
-                isCaptured
-                    ? Column(
-                        children: [
-                          const SizedBox(height: 40),
-                          Column(
-                            children: [
-                              Text(
-                                "Re-Post Your BeGreen",
-                                style: AppFonts.heading3,
-                              ),
-                              Text(
-                                "Frame it in the camera and hold still",
-                                style: AppFonts.smallLightText,
-                              ),
-                              const SizedBox(height: 30),
-                            ],
+              ),
+              isCaptured
+                  ? Column(
+                      children: [
+                        const SizedBox(height: 40),
+                        Column(
+                          children: [
+                            Text(
+                              "Re-Post Your BeGreen",
+                              style: AppFonts.heading3,
+                            ),
+                            Text(
+                              "Frame it in the camera and hold still",
+                              style: AppFonts.smallLightText,
+                            ),
+                            const SizedBox(height: 30),
+                          ],
+                        ),
+                        SizedBox(
+                          child: Image.file(
+                            _capturedImage!,
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            width: MediaQuery.of(context).size.height * 0.35,
+                            fit: BoxFit.cover,
                           ),
-                          ClipOval(
-                            child: SizedBox(
-                              child: Image.file(
-                                _capturedImage!,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
-                                width: MediaQuery.of(context).size.height * 0.3,
-                                fit: BoxFit.cover,
+                        ),
+                        Column(
+                          children: [
+                            const SizedBox(height: 60),
+                            Text(
+                              "Congratulations! You have earned",
+                              style: AppFonts.normalRegularText,
+                            ),
+                            const SizedBox(height: 5),
+                            const Padding(
+                              padding: AppStyles.edgeInsetsLR,
+                              child: DividerLine(),
+                            ),
+                            const SizedBox(height: 10),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 60),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    // output == '0 happy'
+                                    //     ? Image.asset(
+                                    //         'lib/assets/images/emojiHappy.png',
+                                    //         width: 120,
+                                    //       )
+                                    //     : output == '1 sad'
+                                    //         ? Image.asset(
+                                    //             'lib/assets/images/Sad.png',
+                                    //             width: 120,
+                                    //           )
+                                    //         : output == ' 2 angry'
+                                    //             ? Image.asset(
+                                    //                 'lib/assets/images/emojiHappy.png',
+                                    //                 width: 120,
+                                    //               )
+                                    //             : Container(),
+                                    // SizedBox(width: 10),
+                                    Text(
+                                      BeGreenReward,
+                                      style: AppFonts.heading3Height,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: DefaultButton(
+                            press: rescan,
+                            text: "Retake a photo",
+                            backgroundColor: AppColor.btnColorPrimary,
+                            height: 40,
+                            fontStyle: AppFonts.normalRegularTextWhite,
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 8,
+                            ),
                           ),
-                          Column(
-                            children: [
-                              const SizedBox(height: 60),
-                              Text(
-                                "Congratulations! You have earned",
-                                style: AppFonts.normalRegularText,
-                              ),
-                              const SizedBox(height: 5),
-                              const Padding(
-                                padding: AppStyles.edgeInsetsLR,
-                                child: DividerLine(),
-                              ),
-                              const SizedBox(height: 10),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 60),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      // output == '0 happy'
-                                      //     ? Image.asset(
-                                      //         'lib/assets/images/emojiHappy.png',
-                                      //         width: 120,
-                                      //       )
-                                      //     : output == '1 sad'
-                                      //         ? Image.asset(
-                                      //             'lib/assets/images/Sad.png',
-                                      //             width: 120,
-                                      //           )
-                                      //         : output == ' 2 angry'
-                                      //             ? Image.asset(
-                                      //                 'lib/assets/images/emojiHappy.png',
-                                      //                 width: 120,
-                                      //               )
-                                      //             : Container(),
-                                      // SizedBox(width: 10),
-                                      Text(
-                                        BeGreenReward,
-                                        style: AppFonts.heading3Height,
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        const SizedBox(height: 40),
+                        Column(
+                          children: [
+                            Text(
+                              "Post your BeGreen",
+                              style: AppFonts.heading3,
+                            ),
+                            Text(
+                              "Frame it in the camera and hold still",
+                              style: AppFonts.smallLightText,
+                            ),
+                            const SizedBox(height: 30),
+                          ],
+                        ),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              width: MediaQuery.of(context).size.height * 0.35,
+                              child: !cameraController!.value.isInitialized
+                                  ? Container()
+                                  : ClipRRect(
+                                      borderRadius: AppStyles.borderRadiusAll,
+                                      child: AspectRatio(
+                                        aspectRatio:
+                                            cameraController!.value.aspectRatio,
+                                        child: CameraPreview(cameraController!),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                            ),
+                            // In the Column where you display the camera preview and the CircularProgressIndicator
+                            SizedBox(
+                              height: 35, // Set the desired height
+                              width: 35, // Set the desired width
+                              child: isLoading
+                                  ? CircularProgressIndicator(
+                                      strokeWidth:
+                                          2, // Optionally adjust the stroke width
+                                      color: AppColor.btnColorPrimary,
+                                    )
+                                  : const SizedBox(), // Use SizedBox if not loading
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            const SizedBox(height: 60),
+                            Text(
+                              "Glad you are practicing to BeGreen!",
+                              style: AppFonts.normalRegularText,
+                            ),
+                            const SizedBox(height: 5),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 30),
+                              child: DividerLine(),
+                            ),
+                            const SizedBox(height: 10),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 60),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text(
+                                      BeGreenReward,
+                                      style: AppFonts.heading3Height,
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 60),
-                            child: DefaultButton(
-                              press: rescan,
-                              text: "Retake a photo",
-                              backgroundColor: AppColor.btnColorPrimary,
-                              height: 40,
-                              fontStyle: AppFonts.normalRegularTextWhite,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 8,
-                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: DefaultButton(
+                            press: isLoading ? null : logBeGreen,
+                            text: "Upload BeGreen",
+                            backgroundColor: AppColor.btnColorPrimary,
+                            height: 40,
+                            fontStyle: AppFonts.normalRegularTextWhite,
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 8,
                             ),
                           ),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          const SizedBox(height: 40),
-                          Column(
-                            children: [
-                              Text(
-                                "Post your BeGreen",
-                                style: AppFonts.heading3,
-                              ),
-                              Text(
-                                "Frame it in the camera and hold still",
-                                style: AppFonts.smallLightText,
-                              ),
-                              const SizedBox(height: 30),
-                            ],
-                          ),
-                          Stack(
-                            children: [
-                              ClipOval(
-                                child: SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.3,
-                                  width:
-                                      MediaQuery.of(context).size.height * 0.3,
-                                  child: !cameraController!.value.isInitialized
-                                      ? Container()
-                                      : AspectRatio(
-                                          aspectRatio: cameraController!
-                                              .value.aspectRatio,
-                                          child:
-                                              CameraPreview(cameraController!),
-                                        ),
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
-                                width: MediaQuery.of(context).size.height * 0.3,
-                                child: isLoading
-                                    ? CircularProgressIndicator(
-                                        color: AppColor.btnColorPrimary,
-                                      )
-                                    : const CircularProgressIndicator(
-                                        color: Colors.transparent),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              const SizedBox(height: 60),
-                              Text(
-                                "Glad you are practicing BeGreen!",
-                                style: AppFonts.normalRegularText,
-                              ),
-                              const SizedBox(height: 5),
-                              const Padding(
-                                padding: AppStyles.edgeInsetsLR,
-                                child: DividerLine(),
-                              ),
-                              const SizedBox(height: 10),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 60),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        BeGreenReward,
-                                        style: AppFonts.heading3Height,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 15),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 60),
-                            child: DefaultButton(
-                              press: isLoading ? null : logBeGreen,
-                              text: "Upload BeGreen",
-                              backgroundColor: AppColor.btnColorPrimary,
-                              height: 40,
-                              fontStyle: AppFonts.normalRegularTextWhite,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 8,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-              ],
-            ),
+                        ),
+                      ],
+                    ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
