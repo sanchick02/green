@@ -7,6 +7,7 @@ import 'package:green/presets/fonts.dart';
 import 'package:green/presets/shadow.dart';
 import 'package:green/presets/styles.dart';
 import 'package:green/provider/user_provider.dart';
+import 'package:green/screens/eastwest_stats_screen.dart';
 import 'package:green/screens/explore/explore_destinations_screen.dart';
 import 'package:green/screens/statistics_screen.dart';
 import 'package:green/widgets/button.dart';
@@ -234,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             text: "See More",
                             press: () {
                               navigateNextPage(
-                                  context, ExploreDestinationsScreen());
+                                  context, EastWestStatsScreen());
                             },
                             backgroundColor: AppColor.btnColorPrimary,
                             height: 35,

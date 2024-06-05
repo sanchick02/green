@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:green/navigation.dart';
-import 'package:green/screens/landing/landing_screen.dart';
+import 'package:green/screens/landing/landing_screen1.dart';
 
 class AuthWidgetTree extends StatefulWidget {
   const AuthWidgetTree({super.key});
@@ -24,7 +24,7 @@ class _AuthWidgetTreeState extends State<AuthWidgetTree> {
           return const Navigation();
         } else {
           print('welcome');
-          return const LandingScreen();
+          return LandingScreen1();
         }
       },
     );
