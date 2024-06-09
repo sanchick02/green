@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:green/presets/colors.dart';
 import 'package:green/presets/fonts.dart';
+import 'package:green/screens/auth/auth_screen.dart';
 import 'package:green/widgets/button.dart';
 
 class LandingScreen1 extends StatefulWidget {
@@ -87,8 +88,12 @@ class _LandingScreen1State extends State<LandingScreen1> {
                       : "Swipe Left To Next Step",
                   press: carouselCurrentIndex == carouselImageUrls.length - 1
                       ? () {
-                          // Navigate to SignUp
-                        }
+                          
+                        Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) => AuthScreen()));
+                      }
+                        
                       : () {},
                   height: 60,
                   fontStyle:
